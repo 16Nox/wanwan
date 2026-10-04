@@ -6720,3 +6720,121 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(87, 107, 149, 0.1);
   white-space: nowrap;
 }
+
+/* Faint Silk 浅丝 适配主题 */
+
+/* Faint Silk 浅丝 适配版 - 弯弯小手机主题 */
+
+/* ========== 顶栏区域 ========== */
+#chat-window .chat-header {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 返回按钮 - 磨砂玻璃 */
+#chat-window .header-back {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#chat-window .header-back i {
+  color: #000 !important;
+  font-size: 20px !important;
+}
+
+/* 设置按钮 - 磨砂玻璃 */
+#chat-window .btn-icon#btn-chat-settings {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#chat-window .btn-icon#btn-chat-settings i {
+  color: #000 !important;
+}
+
+/* 标题 */
+#chat-window .chat-header-name {
+  color: #000 !important;
+  font-weight: 500 !important;
+}
+
+#chat-window .chat-header-status {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========== 消息区域 ========== */
+#chat-window .chat-messages {
+  background: transparent !important;
+}
+
+/* 消息气泡 - 磨砂透明 */
+#chat-window .msg-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 时间戳 */
+#chat-window .msg-bubble-time {
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 10px !important;
+}
+
+/* ========== 输入栏 ========== */
+#chat-window .chat-input-bar {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+#chat-window .chat-input {
+  color: #000 !important;
+  background: transparent !important;
+}
+
+#chat-window .chat-input::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+#chat-window .chat-input-icon i {
+  color: #000 !important;
+}
+
+/* ========== 装饰文字 ========== */
+#chat-window .chat-header-name::before {
+  content: "✩₊ 행복 손에 닿을 듯 가깝다.*✩" !important;
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  margin-bottom: 2px !important;
+}
+
