@@ -1,14 +1,14 @@
-﻿/* wechat.css 鈥?寰俊妯℃嫙鏍峰紡 */
+/* wechat.css — 微信模拟样式 */
 /* Instagram-like minimal grayscale */
 
-/* ===== 寰俊涓婚〉甯冨眬 ===== */
+/* ===== 微信主页布局 ===== */
 .wechat-main {
   display: flex; flex-direction: column;
   background: var(--c-bg);
   min-height: 0;
 }
 
-/* 椤堕儴header */
+/* 顶部header */
 .wechat-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top));
@@ -20,7 +20,7 @@
   cursor: pointer; user-select: none; color: var(--c-text);
 }
 
-/* 鐜荤拑鎸夐挳鍏辩敤鏁堟灉 */
+/* 玻璃按钮共用效果 */
 .wechat-glass-circle {
   position: absolute; left: 12px;
   width: 36px; height: 36px;
@@ -62,7 +62,7 @@
   background: rgba(0, 0, 0, 0.06); flex-shrink: 0;
 }
 
-/* 鍐呭鍖?*/
+/* 内容区 */
 .wechat-content {
   flex: 1;
   min-height: 0;
@@ -74,7 +74,7 @@
   contain: layout paint;
 }
 
-/* 搴曢儴Tab */
+/* 底部Tab */
 .wechat-tabs {
   display: flex; border-top: 1px solid var(--c-border);
   padding-bottom: env(safe-area-inset-bottom); background: var(--c-bg); flex-shrink: 0;
@@ -94,7 +94,7 @@ html.has-android-bottom-inset .wechat-tabs {
   flex-shrink: 0;
 }
 
-/* ===== 鎼滅储鏍?===== */
+/* ===== 搜索栏 ===== */
 .wechat-search-bar {
   max-height: 0; overflow: hidden; background: var(--c-bg);
   transition: max-height 0.25s var(--ease);
@@ -122,7 +122,7 @@ html.has-android-bottom-inset .wechat-tabs {
   font-size: 14px; color: var(--c-accent); white-space: nowrap; flex-shrink: 0;
 }
 
-/* 鎼滅储缁撴灉 */
+/* 搜索结果 */
 .wechat-search-results {
   flex: 1; min-height: 0; overflow-y: auto; background: var(--c-bg);
   -webkit-overflow-scrolling: touch;
@@ -157,7 +157,7 @@ html.has-android-bottom-inset .wechat-tabs {
   text-align: center; color: var(--c-hint); font-size: 14px; padding: 40px 16px;
 }
 
-/* ===== 椤堕儴寰俊娑堟伅寮圭獥 ===== */
+/* ===== 顶部微信消息弹窗 ===== */
 .wechat-top-message-popup {
   position: fixed;
   z-index: 9999;
@@ -283,7 +283,7 @@ html.has-android-bottom-inset .wechat-tabs {
   line-height: 1.35;
 }
 
-/* ===== 鑱婂ぉ鍒楄〃琛?===== */
+/* ===== 聊天列表行 ===== */
 .chat-log-shell {
   padding: 18px 20px 28px;
 }
@@ -437,7 +437,7 @@ html.has-android-bottom-inset .wechat-tabs {
   font-weight: 500;
 }
 
-/* 鏈瑙掓爣 */
+/* 未读角标 */
 .unread-badge {
   position: absolute; top: -3px; right: -3px; min-width: 16px; height: 16px;
   background: var(--c-red); color: #fff; border-radius: var(--r-pill);
@@ -474,7 +474,7 @@ html.has-android-bottom-inset .wechat-tabs {
   padding: 0 20px 12px;
 }
 
-/* ===== 鑱婂ぉ绐楀彛 ===== */
+/* ===== 聊天窗口 ===== */
 .chat-window-page {
   display: flex; flex-direction: column;
   --chat-header-height: calc(60px + env(safe-area-inset-top));
@@ -552,7 +552,7 @@ html.has-android-bottom-inset .chat-window-page {
   color: var(--c-text); font-size: 15px; font-weight: 500;
 }
 
-/* 娑堟伅鍖哄煙 */
+/* 消息区域 */
 .chat-messages {
   flex: 1; min-height: 0; overflow-y: auto;
   padding: calc(var(--chat-header-height) + 12px) 16px calc(var(--chat-input-overlay-height) + 12px);
@@ -584,7 +584,7 @@ html.has-android-bottom-inset .chat-window-page {
   background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* 娑堟伅琛?*/
+/* 消息行 */
 .msg-row { display: flex; align-items: flex-start; gap: 8px; }
 .msg-self { flex-direction: row-reverse; }
 .chat-window-page.is-multi-selecting .chat-input-area {
@@ -642,7 +642,7 @@ html.has-android-bottom-inset .chat-window-page {
 }
 
 
-/* 姘旀场 */
+/* 气泡 */
 .msg-bubble {
   max-width: 100%; padding: 6px 10px; border-radius: 6px;
   font-size: 14px; line-height: 1.6; word-break: break-word; white-space: pre-wrap;
@@ -773,13 +773,13 @@ html.has-android-bottom-inset .chat-window-page {
   color: var(--c-hint);
 }
 
-/* 缇よ亰鍙戦€佽€呭悕 */
+/* 群聊发送者名 */
 .msg-group-wrap { display: flex; flex-direction: column; }
 .msg-self .msg-group-wrap { align-items: flex-end; }
 .msg-other .msg-group-wrap { align-items: flex-start; }
 .msg-sender-name { font-size: 11px; color: var(--c-sub); padding-left: 2px; }
 
-/* 杈撳叆涓姩鐢?*/
+/* 输入中动画 */
 .typing-dots { display: flex; gap: 4px; align-items: center; padding: 14px 16px; }
 .typing-dots span {
   width: 6px; height: 6px; background: var(--c-sub); border-radius: 50%;
@@ -792,7 +792,7 @@ html.has-android-bottom-inset .chat-window-page {
   30% { transform: translateY(-6px); }
 }
 
-/* ===== 杈撳叆鏍?===== */
+/* ===== 输入栏 ===== */
 .chat-input-area {
   display: flex; flex-direction: column;
   position: relative;
@@ -872,7 +872,7 @@ html.has-android-bottom-inset .chat-window-page {
   font-size: 12px; line-height: 1.4;
 }
 .quote-compose-name { flex-shrink: 0; font-weight: 600; color: var(--c-text); }
-.quote-compose-name::after { content: "锛?; }
+.quote-compose-name::after { content: "："; }
 .quote-compose-text {
   min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
@@ -893,7 +893,7 @@ html.has-android-bottom-inset .chat-input-bar {
   padding-bottom: calc(8px + env(safe-area-inset-bottom) + var(--android-bottom-inset));
 }
 
-/* 宸︿晶榄旀硶妫掑洖澶嶆寜閽?*/
+/* 左侧魔法棒回复按钮 */
 .chat-reply-btn {
   width: 40px; height: 40px; flex-shrink: 0;
   border-radius: 50%; border: none; cursor: pointer;
@@ -907,7 +907,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .chat-reply-btn:hover { background: var(--c-accent-light); color: var(--c-accent-dark); }
 .chat-reply-btn:active { transform: scale(0.92); background: var(--c-accent-light); }
 
-/* 杈撳叆妗嗚兌鍥婂鍣紙杈撳叆 + 鍙充晶涓変釜鍥炬爣锛?*/
+/* 输入框胶囊容器（输入 + 右侧三个图标） */
 .chat-input-wrap {
   flex: 1; min-width: 0;
   display: flex; align-items: flex-end; gap: 2px;
@@ -937,7 +937,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .chat-input::placeholder { color: var(--c-hint); }
 
-/* 杈撳叆鏍忓彸渚у浘鏍囩粍 */
+/* 输入栏右侧图标组 */
 .chat-input-actions {
   display: flex; align-items: center; gap: 0;
   flex-shrink: 0; padding-bottom: 2px;
@@ -964,7 +964,7 @@ html.has-android-bottom-inset .chat-input-bar {
   touch-action: manipulation;
 }
 
-/* 鍔犲彿 鈫?鍙戦€?鍙屾€佸垏鎹?*/
+/* 加号 → 发送 双态切换 */
 .chat-input-icon.is-send {
   color: #fff;
   background: var(--c-accent);
@@ -973,7 +973,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .chat-input-icon.is-send:hover { background: var(--c-accent-dark); color: #fff; }
 .chat-input-icon.is-send:active { background: var(--c-accent-dark); transform: scale(0.9); }
 
-/* 娑堟伅涓婁笅鏂囪彍鍗?*/
+/* 消息上下文菜单 */
 .msg-context-menu {
   position: fixed; background: rgba(44,44,44,0.9); border-radius: var(--r-md);
   z-index: 500; overflow: hidden; box-shadow: var(--shadow-lg);
@@ -1064,7 +1064,7 @@ html.has-android-bottom-inset .chat-input-bar {
   touch-action: manipulation;
 }
 
-/* ===== 閫氳褰?===== */
+/* ===== 通讯录 ===== */
 .contacts-story-rail {
   display: flex;
   gap: 16px;
@@ -1330,7 +1330,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-sub); background: var(--c-surface);
 }
 
-/* 閫氳褰曢《閮?娣诲姞濂藉弸"琛?*/
+/* 通讯录顶部"添加好友"行 */
 .contact-add-row { background: var(--c-bg); }
 .contact-add-row:active { background: var(--c-surface); }
 .contact-add-avatar {
@@ -1341,7 +1341,7 @@ html.has-android-bottom-inset .chat-input-bar {
   padding-bottom: 16px;
 }
 
-/* ===== 娣诲姞濂藉弸寮圭獥 ===== */
+/* ===== 添加好友弹窗 ===== */
 .af-tabs {
   display: flex; padding: 0 16px; gap: 16px;
   border-bottom: 1px solid var(--c-border); margin-bottom: 4px;
@@ -1388,7 +1388,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .af-pick-nick { font-size: 11px; color: var(--c-sub); }
 .af-pick-account { font-size: 11px; color: var(--c-hint); }
 
-/* ===== 鍙戠幇椤?===== */
+/* ===== 发现页 ===== */
 .discover-menu { padding-top: 12px; }
 .discover-group { margin-top: 10px; background: var(--c-bg); }
 .discover-group:first-child { margin-top: 0; }
@@ -1412,7 +1412,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .discover-arrow { color: #9c9c9c; font-size: 15px; flex-shrink: 0; }
 
-/* ===== 鏈嬪弸鍦?===== */
+/* ===== 朋友圈 ===== */
 .wechat-moments-page .moments-scroll {
   flex: 1; overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -1914,7 +1914,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-surface);
 }
 
-/* ===== 鍙戝竷鍔ㄦ€?===== */
+/* ===== 发布动态 ===== */
 .wechat-post-moment-page {
   background: var(--c-bg);
   display: flex;
@@ -2210,7 +2210,7 @@ html.has-android-bottom-inset .chat-input-bar {
   }
 }
 
-/* ===== 鎴憈ab ===== */
+/* ===== 我tab ===== */
 .me-profile-page {
   min-height: 100%;
   padding: 12px 22px 28px;
@@ -2663,7 +2663,7 @@ html.has-android-bottom-inset .chat-input-bar {
   .me-action-btn { height: 38px; font-size: 12px; }
 }
 
-/* ===== 缇よ亰鍔犲彿鑿滃崟 ===== */
+/* ===== 群聊加号菜单 ===== */
 .wechat-add-menu { display: flex; flex-direction: column; padding: 8px 16px 16px; gap: 4px; }
 .add-menu-item {
   display: flex; align-items: center; gap: 16px; padding: 14px 8px;
@@ -2671,7 +2671,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .add-menu-item i { width: 24px; text-align: center; color: var(--c-accent); font-size: 18px; }
 
-/* 缇よ亰鎴愬憳閫夋嫨 */
+/* 群聊成员选择 */
 .group-member-select { max-height: 280px; overflow-y: auto; padding: 0 16px; }
 .member-select-row {
   width: 100%;
@@ -2686,7 +2686,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .member-check { color: var(--c-hint); font-size: 18px; }
 .fa-check-circle { color: var(--c-accent) !important; }
 
-/* ===== 缇よ亰璁剧疆 ===== */
+/* ===== 群聊设置 ===== */
 .group-settings-page {
   display: flex;
   flex-direction: column;
@@ -3021,7 +3021,7 @@ html.has-android-bottom-inset .chat-input-bar {
   }
 }
 
-/* ===== 寰俊鐧诲綍椤?===== */
+/* ===== 微信登录页 ===== */
 .wechat-login-page {
   background: var(--c-surface); display: flex; align-items: center; justify-content: center;
   padding: 20px 24px; padding-top: calc(20px + env(safe-area-inset-top));
@@ -3043,7 +3043,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .wl-title { font-size: 22px; font-weight: 600; color: var(--c-text); letter-spacing: 0; }
 .wl-subtitle { font-size: 13px; color: var(--c-hint); margin-top: -6px; }
 
-/* 琛ㄥ崟鐧藉崱 */
+/* 表单白卡 */
 .wl-form-card {
   width: 100%; background: var(--c-bg); border-radius: var(--r-md);
   box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 12px;
@@ -3062,7 +3062,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .wl-agree { font-size: 11px; color: var(--c-hint); text-align: center; margin-bottom: 16px; }
 .wl-agree-link { color: var(--c-accent); }
 
-/* 鐧诲綍/杩斿洖鎸夐挳 */
+/* 登录/返回按钮 */
 .wl-submit-btn {
   width: 100%; padding: 14px 0; background: var(--c-accent); color: #fff;
   border-radius: var(--r-pill); font-size: 16px; font-weight: 400;
@@ -3082,7 +3082,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .wl-link-sep { color: var(--c-border-m); }
 .wl-link-dim { color: var(--c-hint); pointer-events: none; }
 
-/* 鎵惧洖瀵嗙爜寮圭獥 */
+/* 找回密码弹窗 */
 .wl-modal-overlay {
   position: absolute; inset: 0; background: rgba(0,0,0,0.35); z-index: 600;
   display: flex; align-items: center; justify-content: center; padding: 24px;
@@ -3117,7 +3117,7 @@ html.has-android-bottom-inset .chat-input-bar {
   font-size: 14px; font-family: var(--font); color: #fff; border: none; cursor: pointer;
 }
 
-/* ===== 寰俊鍒囨崲璐﹀彿椤?===== */
+/* ===== 微信切换账号页 ===== */
 .wechat-account-switch-page {
   background: var(--c-bg);
   display: flex;
@@ -3283,7 +3283,7 @@ html.has-android-bottom-inset .chat-input-bar {
   font-size: 12px;
 }
 
-/* ===== 鍔犲彿闈㈡澘 ===== */
+/* ===== 加号面板 ===== */
 :root { --chat-picker-panel-height: 196px; }
 .chat-plus-panel {
   height: calc(var(--chat-picker-panel-height) + env(safe-area-inset-bottom, 0px) + var(--chat-bottom-safe-extra, 0px));
@@ -3379,7 +3379,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .reply-history-empty { padding: 30px 0; color: var(--c-hint); font-size: 13px; text-align: center; }
 
-/* ===== 琛ㄦ儏鍖呭唴鑱旈潰鏉匡紙涓庡姞鍙烽潰鏉垮悓褰㈡€侊級 ===== */
+/* ===== 表情包内联面板（与加号面板同形态） ===== */
 .chat-emoji-panel {
   height: calc(var(--chat-picker-panel-height) + env(safe-area-inset-bottom, 0px) + var(--chat-bottom-safe-extra, 0px));
   background: var(--c-bg);
@@ -3430,7 +3430,7 @@ html.has-android-bottom-inset .chat-input-bar {
   transform: scale(0.94);
 }
 
-/* ===== 娑堟伅鍐呭鍖呰 ===== */
+/* ===== 消息内容包装 ===== */
 .msg-content-wrap {
   display: flex; flex-direction: column;
   max-width: 80%; min-width: 0;
@@ -3439,7 +3439,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .msg-other .msg-content-wrap { align-items: flex-start; }
 .msg-status-tip { font-size: 10px; color: var(--c-hint); padding: 0 4px; }
 
-/* ===== 璇煶姘旀场 ===== */
+/* ===== 语音气泡 ===== */
 .voice-message {
   display: flex; flex-direction: column; gap: 6px; max-width: 100%;
 }
@@ -3511,7 +3511,7 @@ html.has-android-bottom-inset .chat-input-bar {
   animation: voiceSignalOuter 1.2s infinite steps(1, end);
 }
 
-/* ===== 鍥剧墖娑堟伅 ===== */
+/* ===== 图片消息 ===== */
 .photo-card {
   background: var(--c-surface); border-radius: var(--r-md);
   overflow: hidden; width: 150px; max-width: 44vw;
@@ -3526,9 +3526,9 @@ html.has-android-bottom-inset .chat-input-bar {
 .msg-real-photo {
   width: 200px; aspect-ratio: 3 / 4; max-width: 100%; max-height: 280px;
   object-fit: cover; border-radius: var(--r-md); display: block;
-  background: var(--c-border);   /* 鍔犺浇鍓嶆樉绀虹伆鑹插崰浣嶏紝閬垮厤浠?0 鎾戝紑閫犳垚鎶栧姩 */
+  background: var(--c-border);   /* 加载前显示灰色占位，避免从 0 撑开造成抖动 */
 }
-.msg-photo-generating {   /* 鐢熸垚涓崰浣嶏細涓?real-photo 鍚屽昂瀵哥伆鍧楋紝灞呬腑鍔犺浇鎸囩ず */
+.msg-photo-generating {   /* 生成中占位：与 real-photo 同尺寸灰块，居中加载指示 */
   display: flex; align-items: center; justify-content: center;
   color: var(--c-hint); font-size: 20px; cursor: default;
 }
@@ -3544,7 +3544,7 @@ html.has-android-bottom-inset .chat-input-bar {
   text-align: center; border-top: 1px solid var(--c-border);
 }
 
-/* ===== 杞处鍗＄墖 ===== */
+/* ===== 转账卡片 ===== */
 .transfer-card {
   background: var(--c-bg); border: 1px solid var(--c-border);
   border-radius: var(--r-md); overflow: hidden; min-width: 220px; max-width: 260px;
@@ -3617,7 +3617,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-text); color: #fff;
 }
 
-/* ===== 娣樺疂浠ｄ粯/璧犻€?鍗＄墖 ===== */
+/* ===== 淘宝代付/赠送 卡片 ===== */
 .tb-deal-card {
   background: var(--c-bg); border: 1px solid var(--c-border);
   border-radius: var(--r-md); overflow: hidden; min-width: 220px; max-width: 264px;
@@ -3662,7 +3662,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .tb-deal-modal-btn-neg { background: var(--c-surface-2); color: var(--c-sub); }
 .tb-deal-modal-btn-pos { background: var(--c-text); color: #fff; }
 
-/* ===== YumYum 澶栧崠璁㈠崟鍗＄墖锛堜唬浠?璧犻€侊級 ===== */
+/* ===== YumYum 外卖订单卡片（代付/赠送） ===== */
 .yum-deal-card {
   background: var(--c-bg);
   border: 1px solid var(--c-border);
@@ -3781,7 +3781,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .yum-deal-foot-arrow { margin-left: auto; color: var(--c-hint) !important; }
 
-/* YumYum 璇︽儏寮圭獥 */
+/* YumYum 详情弹窗 */
 .yum-deal-modal-title { padding-bottom: 8px; }
 .yum-deal-modal-title i { color: #5c5c60; margin-right: 4px; }
 .yum-deal-modal-body { padding: 2px 20px 14px; text-align: center; }
@@ -3817,7 +3817,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .yum-deal-modal-btn-neg { background: var(--c-surface-2); color: var(--c-sub); }
 .yum-deal-modal-btn-pos { background: linear-gradient(135deg, #4a4a4d, #2c2c2e); color: #fff; }
 
-/* ===== 寰俊寮忓眳涓郴缁熸彁绀?===== */
+/* ===== 微信式居中系统提示 ===== */
 .msg-row.msg-system {
   justify-content: center; padding: 4px 0;
 }
@@ -3826,7 +3826,7 @@ html.has-android-bottom-inset .chat-input-bar {
   padding: 4px 10px; line-height: 1.5;
 }
 
-/* ===== MCP 璋冪敤杞ㄨ抗 ===== */
+/* ===== MCP 调用轨迹 ===== */
 .mcp-trace-row { padding: 3px 12px !important; }
 .mcp-trace-card {
   width: min(88%, 430px);
@@ -3931,7 +3931,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: #fff;
 }
 
-/* ===== 琛ㄦ儏鍖?===== */
+/* ===== 表情包 ===== */
 .msg-sticker { display: inline-flex; }
 .sticker-box {
   background: var(--c-surface); border-radius: var(--r-md);
@@ -3947,13 +3947,13 @@ html.has-android-bottom-inset .chat-input-bar {
   background: transparent;
 }
 
-/* ===== 寮曠敤鍥炲 ===== */
+/* ===== 引用回复 ===== */
 .quote-ref {
   background: var(--c-surface); border-radius: 6px;
   padding: 6px 10px; font-size: 12px; color: var(--c-sub);
   transform: translateY(5px);
 }
-/* 閽冲湪鏃?padding 鐨勫唴灞傦紝閬垮厤琚埅鏂殑涓嬩竴琛屼粠瀹瑰櫒搴曢儴 padding 閲岄湶鍑烘潵 */
+/* 钳在无 padding 的内层，避免被截断的下一行从容器底部 padding 里露出来 */
 .quote-ref-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -3974,7 +3974,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 
 
-/* ===== 鎾ゅ洖娑堟伅 ===== */
+/* ===== 撤回消息 ===== */
 .msg-recall-row { text-align: center; padding: 4px 0; }
 .recall-tip { font-size: 12px; color: var(--c-hint); }
 .recall-view { font-size: 12px; color: var(--c-accent); cursor: pointer; margin-left: 4px; }
@@ -3986,7 +3986,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .recalled-label { font-size: 13px; color: var(--c-sub); margin-bottom: 8px; }
 .recalled-content { font-size: 14px; color: var(--c-text); line-height: 1.6; }
 
-/* ===== 浣嶇疆鍗＄墖 ===== */
+/* ===== 位置卡片 ===== */
 .location-card {
   background: var(--c-bg); border: 1px solid var(--c-border);
   border-radius: var(--r-md); overflow: hidden; min-width: 180px;
@@ -3998,7 +3998,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .location-place { font-size: 14px; color: var(--c-text); padding: 0 12px; }
 .location-dist { font-size: 11px; color: var(--c-sub); padding: 4px 12px 10px; }
 
-/* ===== 閾炬帴鍗＄墖 ===== */
+/* ===== 链接卡片 ===== */
 .link-card {
   width: min(252px, 72vw);
   display: flex;
@@ -4069,7 +4069,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .link-card.is-unavailable .link-card-summary {
   color: var(--c-hint);
 }
-/* ===== 鑱婂ぉ璁剧疆椤?===== */
+/* ===== 聊天设置页 ===== */
 .cs-profile-hero {
   padding: 22px 16px 20px;
   background: var(--c-surface);
@@ -4471,7 +4471,7 @@ html.has-android-bottom-inset .chat-input-bar {
   overflow: auto;
 }
 
-/* 蹇冨０妯℃澘棰勮绠＄悊椤?*/
+/* 心声模板预设管理页 */
 .thought-presets-page { display: flex; flex-direction: column; }
 .thought-presets-page .page-header .header-back,
 .thought-presets-page .page-header .tp-header-action {
@@ -4584,7 +4584,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .tp-empty-text { font-size: 15px; color: var(--c-text); font-weight: 500; }
 .tp-empty-sub { font-size: 12px; color: var(--c-hint); margin-bottom: 8px; }
 
-/* 蹇冨０妯℃澘缂栬緫鍣ㄩ〉 */
+/* 心声模板编辑器页 */
 .thought-preset-editor .tpe-scroll {
   flex: 1; overflow-y: auto; padding: 16px 16px 24px;
 }
@@ -4599,7 +4599,7 @@ html.has-android-bottom-inset .chat-input-bar {
   overflow-x: hidden;
   overflow-wrap: anywhere;
 }
-/* 鑱婂ぉ璁剧疆 - 蹇冨０棰勮閫夋嫨鍣?*/
+/* 聊天设置 - 心声预设选择器 */
 .cs-preset-picker { padding: 8px 0 4px; }
 .cs-preset-list { display: flex; flex-direction: column; }
 .cs-preset-row {
@@ -4618,7 +4618,7 @@ html.has-android-bottom-inset .chat-input-bar {
   font-style: italic;
 }
 
-/* 澶栬璁剧疆 - 婊戝潡琛?*/
+/* 外观设置 - 滑块行 */
 .cs-slider-row {
   display: flex; flex-direction: column; gap: 6px; padding: 6px 0;
   border-bottom: 1px solid var(--c-border);
@@ -4652,7 +4652,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .cs-appearance-preview .msg-avatar { flex-shrink: 0; }
 
-/* 鏃跺尯璁剧疆 */
+/* 时区设置 */
 .cs-tz-toggle-row {
   display: flex; align-items: center; justify-content: space-between; padding: 4px 0;
 }
@@ -4665,14 +4665,14 @@ html.has-android-bottom-inset .chat-input-bar {
 #cs-tz-fields { display: flex; flex-direction: column; gap: 4px; }
 #cs-tz-fields .input-field { font-size: 14px; padding: 10px 12px; }
 
-/* ===== 鍔犺浇/绌虹姸鎬?===== */
+/* ===== 加载/空状态 ===== */
 .list-loading { text-align: center; padding: 40px 0; color: var(--c-hint); font-size: 18px; }
 .list-empty { text-align: center; color: var(--c-hint); font-size: 13px; padding: 20px 0; }
 .sheet-title { font-size: 16px; font-weight: 500; padding: 4px 16px 12px; }
 .sheet-actions { padding: 8px 16px 16px; }
 .btn-full { width: 100%; }
 
-/* ===== 寰俊灞呬腑寮圭獥锛堟浛浠ｅ簳閮?sheet锛?===== */
+/* ===== 微信居中弹窗（替代底部 sheet） ===== */
 .wc-center-modal {
   z-index: 201;
 }
@@ -4685,14 +4685,14 @@ html.has-android-bottom-inset .chat-input-bar {
   padding: 4px 20px 16px;
   display: flex; gap: 10px;
 }
-/* 寮圭獥鍐呭彲婊氬姩瀹瑰櫒锛氶檺鍒堕珮搴︼紝閬垮厤婧㈠嚭灞忓箷 */
+/* 弹窗内可滚动容器：限制高度，避免溢出屏幕 */
 .wc-center-modal .group-member-select,
 .wc-center-modal .af-pick-list,
 .wc-center-modal .cs-lore-list,
 .wc-center-modal .wc-scroll-area {
   max-height: 50vh;
 }
-/* 杈撳叆鍖哄煙缁熶竴澶栬竟璺濓紝閬垮厤璐磋竟 */
+/* 输入区域统一外边距，避免贴边 */
 .wc-center-modal .input-field { font-size: 14px; }
 
 .wechat-pat-target {
@@ -4711,7 +4711,7 @@ html.has-android-bottom-inset .chat-input-bar {
   text-align: center;
 }
 
-/* ===== 鍙戣捣鑱婂ぉ濂藉弸鍒楄〃 ===== */
+/* ===== 发起聊天好友列表 ===== */
 .start-chat-modal {
   width: min(calc(100% - 48px), 380px);
   overflow: hidden;
@@ -4801,7 +4801,7 @@ html.has-android-bottom-inset .chat-input-bar {
   text-align: center;
 }
 
-/* ===== 瑙掕壊蹇冨０鍘嗗彶 ===== */
+/* ===== 角色心声历史 ===== */
 .thoughts-history-modal .thought-list {
   max-height: 50vh; overflow-y: auto;
   padding: 0 20px;
@@ -5074,7 +5074,7 @@ html.has-android-bottom-inset .chat-input-bar {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ===== 琛ㄦ儏鍖呭簱绠＄悊椤?===== */
+/* ===== 表情包库管理页 ===== */
 .sticker-library-page { display: flex; flex-direction: column; }
 .sticker-library-page.sl-no-cats .sl-tabs { display: none; }
 .sl-tabs {
@@ -5138,7 +5138,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .sl-empty-icon { font-size: 56px; color: var(--c-border-m); }
 .sl-empty-text { font-size: 13px; }
 
-/* ===== 琛ㄦ儏鍖呭鍏ュ脊绐?===== */
+/* ===== 表情包导入弹窗 ===== */
 .si-field-label {
   font-size: 12px; color: var(--c-sub);
   letter-spacing: 0.04em; text-transform: uppercase;
@@ -5186,7 +5186,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .si-row-del:active { background: var(--c-surface-2); color: var(--c-red); }
 
-/* ===== 鑱婂ぉ鍐呰〃鎯呭寘閫夋嫨鍣?===== */
+/* ===== 聊天内表情包选择器 ===== */
 .sticker-picker {
   padding: 0 16px 8px;
   display: flex; flex-direction: column; gap: 10px;
@@ -5237,7 +5237,7 @@ html.has-android-bottom-inset .chat-input-bar {
   text-align: center; padding: 36px 12px;
 }
 
-/* ===== 閫氳瘽璁板綍姘旀场锛堣亰澶╅〉鏅€氭秷鎭皵娉★級 ===== */
+/* ===== 通话记录气泡（聊天页普通消息气泡） ===== */
 .call-record-bubble {
   display: inline-flex;
   align-items: center;
@@ -5253,9 +5253,9 @@ html.has-android-bottom-inset .chat-input-bar {
   white-space: nowrap;
 }
 
-/* phone.css 鈥?璇煶閫氳瘽 & 瑙嗛閫氳瘽鐣岄潰鏍峰紡 */
+/* phone.css — 语音通话 & 视频通话界面样式 */
 
-/* ===== 閫氳瘽椤甸潰鍩虹 ===== */
+/* ===== 通话页面基础 ===== */
 
 .call-page {
   position: fixed;
@@ -5283,7 +5283,7 @@ html.has-android-bottom-inset .chat-input-bar {
   padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
 }
 
-/* ===== 璇煶閫氳瘽 ===== */
+/* ===== 语音通话 ===== */
 
 .voice-call-page .call-bg {
   background: #f0f0f0;
@@ -5345,7 +5345,7 @@ html.has-android-bottom-inset .chat-input-bar {
   font-variant-numeric: tabular-nums;
 }
 
-/* ===== 瀵硅瘽鍖哄煙锛堥€氱敤锛?===== */
+/* ===== 对话区域（通用） ===== */
 
 .call-conversation {
   flex: 1;
@@ -5361,7 +5361,7 @@ html.has-android-bottom-inset .chat-input-bar {
   padding: 8px 0;
 }
 
-/* ===== 閫氳瘽娑堟伅姘旀场锛堝弬鑰冭亰澶╅〉椋庢牸锛?===== */
+/* ===== 通话消息气泡（参考聊天页风格） ===== */
 
 .call-msg {
   display: flex;
@@ -5432,7 +5432,7 @@ html.has-android-bottom-inset .chat-input-bar {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== 瑙嗛閫氳瘽 ===== */
+/* ===== 视频通话 ===== */
 
 .video-call-page .call-bg {
   background: #e8e8e8;
@@ -5503,7 +5503,7 @@ html.has-android-bottom-inset .chat-input-bar {
   font-weight: 600;
 }
 
-/* 瑙嗛涓荤敾闈㈠尯鍩?*/
+/* 视频主画面区域 */
 .video-call-page .call-video-main {
   flex: 1;
   overflow-y: auto;
@@ -5511,7 +5511,7 @@ html.has-android-bottom-inset .chat-input-bar {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 瑙嗛閫氳瘽瀛楀箷 */
+/* 视频通话字幕 */
 .call-speech-subtitle {
   font-size: 15px;
   color: #333;
@@ -5538,7 +5538,7 @@ html.has-android-bottom-inset .chat-input-bar {
   margin-top: 2px;
 }
 
-/* ===== 鎺у埗鎸夐挳 ===== */
+/* ===== 控制按钮 ===== */
 
 .call-controls {
   display: flex;
@@ -5598,7 +5598,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: #d63028;
 }
 
-/* ===== 杈撳叆鍖哄煙 ===== */
+/* ===== 输入区域 ===== */
 
 .call-input-area {
   display: flex;
@@ -5671,7 +5671,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: #444;
 }
 
-/* ===== 閫氳瘽璁板綍鍒楄〃椤?===== */
+/* ===== 通话记录列表页 ===== */
 
 .call-records-page {
   background: #f5f5f5;
@@ -5743,7 +5743,7 @@ html.has-android-bottom-inset .chat-input-bar {
   margin-left: 8px;
 }
 
-/* ===== 閫氳瘽璁板綍璇︽儏椤?===== */
+/* ===== 通话记录详情页 ===== */
 
 .call-record-detail-page {
   background: #f5f5f5;
@@ -5842,7 +5842,7 @@ html.has-android-bottom-inset .chat-input-bar {
   text-align: center;
 }
 
-/* ===== 缂╁皬鎸夐挳 ===== */
+/* ===== 缩小按钮 ===== */
 
 .call-minimize-btn {
   position: absolute;
@@ -5867,7 +5867,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* ===== 閫氳瘽椤甸潰闅愯棌鎬?===== */
+/* ===== 通话页面隐藏态 ===== */
 
 .call-page.is-minimized {
   transform: translateY(100%) !important;
@@ -5875,7 +5875,7 @@ html.has-android-bottom-inset .chat-input-bar {
   transition: transform 0.3s var(--ease, cubic-bezier(0.25, 0.1, 0.25, 1));
 }
 
-/* ===== 娴獥鎸囩ず鍣?===== */
+/* ===== 浮窗指示器 ===== */
 
 .call-floating-indicator {
   display: none;
@@ -5925,9 +5925,9 @@ html.has-android-bottom-inset .chat-input-bar {
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* ===== 鏆楀妯″紡 ===== */
+/* ===== 暗夜模式 ===== */
 
-/* --- 鍗＄墖 / 瀹瑰櫒鑳屾櫙锛氱櫧鑹?鈫?娣辫壊 --- */
+/* --- 卡片 / 容器背景：白色 → 深色 --- */
 :root.theme-dark .chat-compose-card,
 :root.theme-dark .chat-pinned-wrap,
 :root.theme-dark .chat-list-card,
@@ -5961,7 +5961,7 @@ html.has-android-bottom-inset .chat-input-bar {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-/* --- 杈撳叆妗?/ placeholder --- */
+/* --- 输入框 / placeholder --- */
 :root.theme-dark .chat-compose-input {
   color: var(--c-hint);
 }
@@ -5969,7 +5969,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 鑱婂ぉ鍒嗙粍鏍囩 --- */
+/* --- 聊天分组标签 --- */
 :root.theme-dark .chat-group-tab {
   color: var(--c-hint);
 }
@@ -5980,18 +5980,18 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 鑱婂ぉ鍒楄〃 pin 鏍囪 --- */
+/* --- 聊天列表 pin 标记 --- */
 :root.theme-dark .chat-pin-mark {
   color: var(--c-hint);
 }
 
-/* --- 鑱婂ぉ鍒楄〃婊戝姩鎿嶄綔 --- */
+/* --- 聊天列表滑动操作 --- */
 :root.theme-dark .chat-pin-action {
   background: #e0e0e0;
   color: #111;
 }
 
-/* --- 鐜荤拑鎸夐挳锛堟殫澶滄ā寮忥級 --- */
+/* --- 玻璃按钮（暗夜模式） --- */
 :root.theme-dark .wechat-glass-circle {
   background: linear-gradient(160deg, rgba(50,50,55,0.85) 0%, rgba(35,35,40,0.6) 100%);
   border-color: rgba(255, 255, 255, 0.08);
@@ -6002,7 +6002,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(60, 60, 65, 0.6);
 }
 
-/* --- header 鍙充晶鑳跺泭 --- */
+/* --- header 右侧胶囊 --- */
 :root.theme-dark .wechat-header-pill {
   border-color: rgba(255, 255, 255, 0.08);
 }
@@ -6013,7 +6013,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* --- 娑堟伅姘旀场 --- */
+/* --- 消息气泡 --- */
 :root.theme-dark .bubble-other {
   background: var(--c-surface);
   color: var(--c-text);
@@ -6024,7 +6024,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 缈昏瘧鍗＄墖 --- */
+/* --- 翻译卡片 --- */
 :root.theme-dark .wechat-translation-card {
   background: var(--c-surface);
   color: var(--c-text);
@@ -6036,7 +6036,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-hint);
 }
 
-/* --- 璇煶杞啓姘旀场 --- */
+/* --- 语音转写气泡 --- */
 :root.theme-dark .voice-transcript-bubble {
   background: var(--c-surface);
   color: var(--c-text);
@@ -6049,7 +6049,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-surface-2);
 }
 
-/* --- 閫氳褰曟悳绱?--- */
+/* --- 通讯录搜索 --- */
 :root.theme-dark .contacts-search-field {
   background: var(--c-surface);
 }
@@ -6061,7 +6061,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 閫氳褰?Story --- */
+/* --- 通讯录 Story --- */
 :root.theme-dark .contacts-story-avatar-shell {
   box-shadow: inset 0 0 0 2px var(--c-surface-2);
 }
@@ -6075,7 +6075,7 @@ html.has-android-bottom-inset .chat-input-bar {
   border-color: var(--c-bg);
 }
 
-/* --- 閫氳褰曞垪琛ㄦ枃瀛?--- */
+/* --- 通讯录列表文字 --- */
 :root.theme-dark .contacts-total {
   color: var(--c-text);
 }
@@ -6092,7 +6092,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-surface-2);
 }
 
-/* --- 鍙戠幇椤?--- */
+/* --- 发现页 --- */
 :root.theme-dark .discover-row {
   border-bottom-color: var(--c-border);
 }
@@ -6110,7 +6110,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 鏈嬪弸鍦?--- */
+/* --- 朋友圈 --- */
 :root.theme-dark .moments-cover {
   background: linear-gradient(135deg, #1a1a1c 0%, #2a2a2e 100%);
 }
@@ -6143,7 +6143,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: linear-gradient(135deg, #1a1a1c 0%, #2a2a2e 100%);
 }
 
-/* 鏈嬪弸鍦堝崱鐗囪彍鍗?*/
+/* 朋友圈卡片菜单 */
 :root.theme-dark .moment-card-menu,
 :root.theme-dark .moment-comment-menu {
   background: var(--c-surface);
@@ -6162,7 +6162,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-surface-2);
 }
 
-/* 鏈嬪弸鍦堟搷浣滆彍鍗曪紙娣辩伆锛?*/
+/* 朋友圈操作菜单（深灰） */
 :root.theme-dark .moment-action-menu {
   background: var(--c-surface-2);
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -6177,12 +6177,12 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(255,255,255,0.12);
 }
 
-/* 鏈嬪弸鍦堢ぞ浜や簰鍔ㄥ尯 */
+/* 朋友圈社交互动区 */
 :root.theme-dark .moment-likes + .moment-comments {
   border-top-color: var(--c-border);
 }
 
-/* --- "鎴?椤甸潰 --- */
+/* --- "我"页面 --- */
 :root.theme-dark .me-name {
   color: var(--c-text);
 }
@@ -6223,7 +6223,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-surface-2);
 }
 
-/* --- 鏀惰棌椤?--- */
+/* --- 收藏页 --- */
 :root.theme-dark .wfp-category-tab {
   color: var(--c-sub);
 }
@@ -6262,12 +6262,12 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-sub);
 }
 
-/* --- 蹇冨０妯℃澘棰勮绠＄悊 --- */
+/* --- 心声模板预设管理 --- */
 :root.theme-dark .tp-row-icon {
   color: var(--c-hint);
 }
 
-/* --- 蹇冨０鍗＄墖 --- */
+/* --- 心声卡片 --- */
 :root.theme-dark .thought-card {
   background: rgba(30,30,32,0.92);
   border-color: rgba(255,255,255,0.06);
@@ -6292,7 +6292,7 @@ html.has-android-bottom-inset .chat-input-bar {
   border-color: rgba(255,255,255,0.06);
 }
 
-/* --- 鍒囨崲璐﹀彿椤?--- */
+/* --- 切换账号页 --- */
 :root.theme-dark .was-back {
   background: rgba(40,40,44,0.74);
 }
@@ -6309,19 +6309,19 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(180, 60, 60, 0.15);
 }
 
-/* --- 涓婁笅鏂囪彍鍗?--- */
+/* --- 上下文菜单 --- */
 :root.theme-dark .msg-context-menu {
   background: rgba(50,50,55,0.92);
 }
 
-/* --- 鍒嗛殧绾?杈规缁熶竴 --- */
+/* --- 分隔线/边框统一 --- */
 :root.theme-dark .discover-row,
 :root.theme-dark .moment-visible-group-row,
 :root.theme-dark .contact-group-option {
   border-bottom-color: var(--c-border);
 }
 
-/* --- 閫氳瘽椤甸潰 --- */
+/* --- 通话页面 --- */
 :root.theme-dark .voice-call-page .call-bg {
   background: var(--c-bg);
 }
@@ -6414,7 +6414,7 @@ html.has-android-bottom-inset .chat-input-bar {
   background: var(--c-hint);
 }
 
-/* --- 閫氳瘽璁板綍椤?--- */
+/* --- 通话记录页 --- */
 :root.theme-dark .call-records-page {
   background: var(--c-bg);
 }
@@ -6466,18 +6466,18 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 娴獥鎸囩ず鍣?--- */
+/* --- 浮窗指示器 --- */
 :root.theme-dark .call-floating-indicator {
   background: var(--c-surface);
   box-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 
-/* --- 娑堟伅閫夋嫨鎺у埗 --- */
+/* --- 消息选择控制 --- */
 :root.theme-dark .msg-select-control {
   border-color: rgba(255,255,255,0.2);
 }
 
-/* --- 鍙戝竷鍔ㄦ€?--- */
+/* --- 发布动态 --- */
 :root.theme-dark .post-moment-textarea::placeholder {
   color: var(--c-hint);
 }
@@ -6485,13 +6485,13 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 閫氳瘽娑堟伅缈昏瘧 --- */
+/* --- 通话消息翻译 --- */
 :root.theme-dark .call-msg-translation {
   color: var(--c-sub);
   border-top-color: var(--c-border);
 }
 
-/* --- 閫氳瘽璁板綍琛ュ厖 --- */
+/* --- 通话记录补充 --- */
 :root.theme-dark .call-records-empty {
   color: var(--c-hint);
 }
@@ -6499,7 +6499,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* --- 缂╁皬鎸夐挳锛堟殫澶滐級 --- */
+/* --- 缩小按钮（暗夜） --- */
 :root.theme-dark .call-minimize-btn {
   background: rgba(255, 255, 255, 0.15);
 }
@@ -6513,7 +6513,7 @@ html.has-android-bottom-inset .chat-input-bar {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* ===== 缇よ亰瀵兼紨锛氱郴缁熸彁绀鸿 / 绾㈠寘 / 鎶曠エ / 绀肩墿锛堢粺涓€鏋佺畝鐏伴樁锛屽榻?transfer-card锛?===== */
+/* ===== 群聊导演：系统提示行 / 红包 / 投票 / 礼物（统一极简灰阶，对齐 transfer-card） ===== */
 .msg-system-note {
   margin: 6px auto;
   max-width: 80%;
@@ -6523,7 +6523,7 @@ html.has-android-bottom-inset .chat-input-bar {
   line-height: 1.5;
 }
 
-/* 绾㈠寘鍗?*/
+/* 红包卡 */
 .redpacket-card {
   min-width: 220px;
   max-width: 260px;
@@ -6583,7 +6583,7 @@ html.has-android-bottom-inset .chat-input-bar {
   color: var(--c-hint);
 }
 
-/* 绾㈠寘璇︽儏寮圭獥 */
+/* 红包详情弹窗 */
 .rp-detail-head {
   text-align: center;
   padding: 18px 16px 14px;
@@ -6644,7 +6644,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .rp-detail-val { color: var(--c-text); font-size: 15px; font-weight: 500; white-space: nowrap; }
 .rp-detail-empty { text-align: center; color: var(--c-hint); padding: 12px 0; font-size: 13px; }
 
-/* 鎶曠エ鍗?*/
+/* 投票卡 */
 .poll-card { min-width: 220px; max-width: 260px; padding: 14px; border-radius: var(--r-md); background: var(--c-bg); border: 1px solid var(--c-border); }
 .poll-q { font-size: 14px; font-weight: 500; color: var(--c-text); margin-bottom: 10px; }
 .poll-options { display: flex; flex-direction: column; gap: 6px; }
@@ -6689,7 +6689,7 @@ html.has-android-bottom-inset .chat-input-bar {
 }
 .poll-foot { margin-top: 8px; font-size: 11px; color: var(--c-hint); }
 
-/* 绀肩墿鍗?*/
+/* 礼物卡 */
 .gift-card { min-width: 220px; max-width: 260px; display: flex; gap: 12px; padding: 14px; border-radius: var(--r-md); background: var(--c-bg); border: 1px solid var(--c-border); }
 .gift-icon {
   width: 40px; height: 40px; border-radius: var(--r-sm); flex-shrink: 0;
@@ -6703,7 +6703,7 @@ html.has-android-bottom-inset .chat-input-bar {
 .gift-to { font-size: 12px; color: var(--c-sub); margin-top: 2px; }
 .gift-reason { font-size: 12px; color: var(--c-hint); margin-top: 4px; }
 
-/* ===== 瑙掕壊鎵嬫満锛氱敓鎴愮殑蹇収濂藉弸锛堥€氳褰曪級 ===== */
+/* ===== 角色手机：生成的快照好友（通讯录） ===== */
 .phone-snapshot-contact-row .contact-info {
   min-width: 0;
 }
@@ -6720,4 +6720,3 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(87, 107, 149, 0.1);
   white-space: nowrap;
 }
-
