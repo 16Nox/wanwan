@@ -29,11 +29,11 @@ var DESKTOP_ICONS = [
   { id: 'memory',    fa: 'fa-brands fa-deezer',         label: '记忆',     action: function() { window.showMemoryPage && showMemoryPage() } },
   { id: 'wallet',    fa: 'fa-brands fa-apple-pay',      label: '钱迹',     action: function() { window.showWalletApp && showWalletApp() } },
   { id: 'taobao',    svg: SVG_ICONS.taobao,             label: '淘宝',     action: function() { window.showTaobaoPage && showTaobaoPage() } },
-  { id: 'bookstore', svg: SVG_ICONS.bookstore,          label: 'Readen', action: function()1,
-  { id: 'novelai', fa: 'fa-solid fawandmagicsparkles', label: 'NovelAI', action: function() { window.open('https://novelai.net/', '_blank') } }---{ window.showBookstorePage && showBookstorePage() } },
+  { id: 'bookstore', svg: SVG_ICONS.bookstore,          label: 'Readen', action: function() { window.showBookstorePage && showBookstorePage() } },
   { id: 'yumyum',    fa: 'fa-solid fa-drumstick-bite',  label: 'YumYum',   action: function() { window.showYumYumPage && showYumYumPage() } },
   { id: 'anyDoor',   fa: 'fa-solid fa-cubes',           label: '任意门',   action: function() { window.showAnyDoorPage && showAnyDoorPage() } },
-  { id: 'gameHall',  fa: 'fa-solid fa-dice',            label: '游戏大厅', action: function() { window.showGameHallPage && showGameHallPage() } }
+  { id: 'gameHall',  fa: 'fa-solid fa-dice',            label: '游戏大厅', action: function() { window.showGameHallPage && showGameHallPage() } },
+  { id: 'novelai',   fa: 'fa-solid fa-wand-magic-sparkles', label: 'NovelAI', action: function() { window.showNovelAIPage && showNovelAIPage() } }
 ]
 
 var DESKTOP_PAGE2_ICONS = [
@@ -3998,5 +3998,32 @@ window.setWallpaper = function(imageUrl) {
   } else {
     home.style.backgroundImage = ''
     home.classList.remove('has-wallpaper')
+  }
+}
+
+// ===== NovelAI 内嵌页面 =====
+window.showNovelAIPage = function() {
+  var existing = document.getElementById('novelai-page')
+  if (existing) existing.remove()
+
+  var page = document.createElement('div')
+  page.id = 'novelai-page'
+  page.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;flex-direction:column;'
+
+  var header = document.createElement('div')
+  header.style.cssText = 'display:flex;align-items:center;padding:12px 16px;background:#f5f5f5;border-bottom:1px solid #ddd;flex-shrink:0;'
+  header.innerHTML = '<button id="novelai-back" style="margin-right:12px;padding:6px 12px;border:none;background:#007aff;color:#fff;border-radius:8px;cursor:pointer;font-size:14px;">← 返回</button>' +
+    '<span style="font-size:16px;font-weight:600;color:#333;">NovelAI</span>'
+
+  var iframe = document.createElement('iframe')
+  iframe.src = 'https://novelai.net/'
+  iframe.style.cssText = 'flex:1;border:none;width:100%;'
+
+  page.appendChild(header)
+  page.appendChild(iframe)
+  document.body.appendChild(page)
+
+  document.getElementById('novelai-back').onclick = function() {
+    page.remove()
   }
 }
