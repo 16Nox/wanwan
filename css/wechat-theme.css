@@ -1,619 +1,114 @@
-/* Faint Silk 浅丝 by 落吟 - 微信聊天美化主题 */
+﻿/* Faint Silk 浅丝 适配版 - 弯弯小手机主题 */
 
-/* ================= 顶栏区域 ================= */
-/* 头像独立 - 用顶栏自己的伪元素 */
-#wechat-chat-detail .chat-header-detail::before {
-  content: "" !important;
-  position: absolute !important;
-  width: 55px !important;
-  height: 55px !important;
+/* ========== 顶栏区域 ========== */
+#chat-window .chat-header {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 返回按钮 - 磨砂玻璃 */
+#chat-window .header-back {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border-radius: 50% !important;
-  background: url(https://i.postimg.cc/1352RwKs/image.jpg) center/cover no-repeat !important;
-  top: 10px !important;
-  left: 47% !important;
-  transform: translateX(-42px) !important;
-  z-index: 3 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-#wechat-chat-detail .chat-header-detail::after {
-  content: "" !important;
-  position: absolute !important;
-  width: 55px !important;
-  height: 55px !important;
+#chat-window .header-back i {
+  color: #000 !important;
+  font-size: 20px !important;
+}
+
+/* 设置按钮 - 磨砂玻璃 */
+#chat-window .btn-icon#btn-chat-settings {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border-radius: 50% !important;
-  background: url(https://i.postimg.cc/DycRKBL9/image.jpg) center/cover no-repeat !important;
-  top: 10px !important;
-  left: 47% !important;
-  transform: translateX(8px) !important;
-  z-index: 3 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* 清除标题的 ::after */
-#wechat-chat-detail .chat-header-detail .header-center::after {
-  display: none !important;
-}
-
-/* 标题上方文案 */
-#wechat-chat-detail .chat-header-detail .header-center::before {
-  content: "✩₊행복손에 닿을 듯 가깝다.*✩" !important;
-  display: block !important;
-  position: absolute !important;
-  top: -10px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  white-space: nowrap !important;
+#chat-window .btn-icon#btn-chat-settings i {
   color: #000 !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  z-index: 2 !important;
 }
 
-/* 标题透明 */
-#wechat-chat-detail .chat-header-detail .header-center {
+/* 标题 */
+#chat-window .chat-header-name {
   color: #000 !important;
-  font-size: 17px !important;
   font-weight: 500 !important;
-  position: absolute !important;
-  z-index: 2 !important;
-  top: 80px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: auto !important;
+}
+
+#chat-window .chat-header-status {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========== 消息区域 ========== */
+#chat-window .chat-messages {
   background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 8px 40px !important;
-  box-shadow: none !important;
-  white-space: nowrap !important;
 }
 
-/* 顶栏完全透明 */
-#wechat-chat-detail .chat-header-detail {
-  background: transparent !important;
-  min-height: 110px !important;
-  height: auto !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* 返回按钮 - 磨砂玻璃 + 新图标 */
-#wechat-chat-detail .header-left {
-  position: absolute !important;
-  left: 20px !important;
-  top: 35px !important;
-  width: 40px !important;
-  height: 40px !important;
-  z-index: 3 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  background-image: url(https://i.postimg.cc/x1x7X8xD/image.png) !important;
-  background-size: 16px 13px !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-radius: 50% !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* 隐藏原来的返回图标 */
-#wechat-chat-detail .header-left svg,
-#wechat-chat-detail .header-left i,
-#wechat-chat-detail .header-left img {
-  display: none !important;
-}
-
-/* 更多按钮 - 磨砂玻璃 + 新图标 */
-#wechat-chat-detail .header-right {
-  width: 40px !important;
-  height: 40px !important;
-  position: absolute !important;
-  right: 20px !important;
-  z-index: 2 !important;
-  top: 35px !important;
-  opacity: 1 !important;
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  background-image: url(https://i.postimg.cc/0y2F5DCz/image.png) !important;
-  background-size: 15px 15px !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-radius: 50% !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* 隐藏原来的更多图标 */
-#wechat-chat-detail .header-right svg,
-#wechat-chat-detail .header-right i,
-#wechat-chat-detail .header-right img {
-  display: none !important;
-}
-
-/* 聊天区域 */
-#wechat-chat-detail .message-list {
-  background: transparent !important;
-  padding-top: 0px !important;
-}
-
-#wechat-chat-detail .message-item {
-  margin: 1px 0 !important;
-}
-
-/* 时间戳 - 磨砂透明 */
-#wechat-chat-detail .chat-time-center span {
+/* 消息气泡 - 磨砂透明 */
+#chat-window .msg-bubble {
   background: rgba(255, 255, 255, 0.25) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   color: #000 !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  font-size: 12px !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-  padding: 3px 10px !important;
 }
 
-/* 系统提示/撤回/戳一戳 - 磨砂透明 */
-#wechat-chat-detail .system-msg span,
-#wechat-chat-detail .recall-msg span,
-#wechat-chat-detail [class*="poke"] span,
-#wechat-chat-detail [class*="tip"] span {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  color: #000 !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  font-size: 12px !important;
-  border-radius: 10px !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-  padding: 3px 10px !important;
-}
-
-/* 气泡状态时间变黑 */
-#wechat-chat-detail .bubble-status-time span {
-  color: #000 !important;
+/* 时间戳 */
+#chat-window .msg-bubble-time {
+  color: rgba(0, 0, 0, 0.6) !important;
   font-size: 10px !important;
 }
 
-/* 引用块 - 磨砂透明 */
-#wechat-chat-detail .quote-block {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  color: #000 !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  border-radius: 10px !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* 引用预览 - 磨砂透明 */
-#wechat-chat-detail #quote-preview {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  color: #000 !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  border-left: 3px solid rgba(0, 0, 0, 0.2) !important;
-  border-radius: 10px !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* 底部输入栏 - 磨砂透明 */
-#wechat-chat-detail .chat-input-bar {
+/* ========== 输入栏 ========== */
+#chat-window .chat-input-bar {
   background: rgba(255, 255, 255, 0.25) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-radius: 20px !important;
-  margin: 10px 12px !important;
-  padding: 10px 14px !important;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  width: calc(100% - 24px) !important;
-  box-sizing: border-box !important;
 }
 
-/* --- 底栏占位文字 --- */
-#wechat-chat-detail #text-input-container {
-  position: relative !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  height: 30px !important;
-  border: none !important;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.3) !important;
-}
-
-#wechat-chat-detail #text-input-container::after {
-  content: "⭒。♡₊ 𝓢𝓽𝓪𝓫𝓵𝓮 𝓱𝓪𝓹𝓹𝓲𝓷𝓮𝓼𝓼 ₊♡ 。⭒" !important;
-  position: absolute !important;
-  left: 12px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  color: #000 !important;
-  font-size: 12px !important;
-  opacity: 0.6 !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  transition: opacity 0s ease-in-out !important;
-}
-
-#wechat-chat-detail #text-input-container textarea {
-  position: relative !important;
-  z-index: 2 !important;
-  background: transparent !important;
-}
-
-#wechat-chat-detail #text-input-container:has(textarea:not(:placeholder-shown))::after {
-  opacity: 0 !important;
-}
-
-#wechat-chat-detail .chat-input-bar input,
-#wechat-chat-detail #text-input-container textarea,
-#wechat-chat-detail .chat-input-bar [contenteditable="true"] {
+#chat-window .chat-input {
   color: #000 !important;
   background: transparent !important;
-  font-size: 14px !important;
 }
 
-#wechat-chat-detail #voice-input-container {
-  background: transparent !important;
-  border-radius: 4px !important;
+#chat-window .chat-input::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
 }
 
-/* 底部图标替换 */
-.chat-input-bar img:nth-child(1) {
-  content: url('https://i.postimg.cc/qMGWdjyD/image.png') !important;
-  width: 19px !important;
-  height: 19px !important;
-}
-
-#wechat-chat-detail img#smile-icon {
-  background: url(https://i.postimg.cc/rwnbDsnc/image.png) center/contain no-repeat !important;
-  width: 19px !important;
-  height: 19px !important;
-  box-sizing: border-box !important;
-  padding-left: 19px !important;
-}
-
-#wechat-chat-detail img#plus-icon {
-  background: url(https://i.postimg.cc/VkGTJv7j/image.png) center/contain no-repeat !important;
-  width: 20px !important;
-  height: 20px !important;
-  box-sizing: border-box !important;
-  padding-left: 20px !important;
-}
-
-#wechat-chat-detail img#voice-icon {
-  opacity: 0 !important;
-  width: 20px !important;
-  height: 20px !important;
-  box-sizing: border-box !important;
-  padding-left: 20px !important;
-}
-
-#wechat-chat-detail .send-btn {
-  background: transparent !important;
-  color: transparent !important;
-  border: none !important;
-  width: 15px !important;
-  height: 15px !important;
-  background: url(https://i.postimg.cc/VkGTJv7j/image.png) center/contain no-repeat !important;
-}
-
-/* 时间戳前面加图标 */
-#wechat-chat-detail .chat-time-center span::before,
-#wechat-chat-detail .system-msg span::before,
-#wechat-chat-detail .recall-msg span::before,
-#wechat-chat-detail [class*="poke"] span::before,
-#wechat-chat-detail [class*="tip"] span::before,
-#wechat-chat-detail .quote-block::before,
-#wechat-chat-detail #quote-preview::before {
-  content: '' !important;
-  display: inline-block !important;
-  width: 14px !important;
-  height: 14px !important;
-  background: url('https://i.postimg.cc/sgDqf7J5/image.png') center/contain no-repeat !important;
-  margin-right: 6px !important;
-  vertical-align: middle !important;
-}
-
-/* 引用消息 - 图标在左边 */
-#wechat-chat-detail .quote-block {
-  display: flex !important;
-  align-items: center !important;
-}
-
-#wechat-chat-detail .quote-block::before {
-  content: '' !important;
-  display: inline-block !important;
-  width: 14px !important;
-  height: 14px !important;
-  min-width: 14px !important;
-  background: url('https://i.postimg.cc/sgDqf7J5/image.png') center/contain no-repeat !important;
-  margin-right: 6px !important;
-}
-
-#wechat-chat-detail .message-list {
-  background: transparent !important;
-  padding-bottom: 10px !important;
-  box-sizing: border-box !important;
-}
-
-/* 聊天区域往下移，不被导航栏遮挡 */
-#wechat-chat-detail .message-list {
-  padding-top: 0px !important;
-}
-
-/* ============ 气泡 ============ */
-/* 自己发的消息 - 磨砂透明 + 灰色边框 */
-#wechat-chat-detail .my-message .message-bubble {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+#chat-window .chat-input-icon i {
   color: #000 !important;
-  border-radius: 12px !important;
-  padding: 4px 12px !important;
-  font-size: 12px !important;
-  border: 1px solid rgba(180, 180, 180, 0.5) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* 对方发的消息 - 磨砂透明 + 灰色边框 */
-#wechat-chat-detail .their-message .message-bubble {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  color: #000 !important;
-  border-radius: 12px !important;
-  padding: 4px 12px !important;
-  font-size: 12px !important;
-  border: 1px solid rgba(180, 180, 180, 0.5) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* ==================== 消息间距缩小 ==================== */
-#wechat-chat-detail .message-item,
-#wechat-chat-detail .message-item .message-content,
-#wechat-chat-detail .message-item .bubble-wrapper,
-#wechat-chat-detail .message-item .msg-content-wrapper,
-#wechat-chat-detail .message-item > div {
-  margin-top: -5px !important;
-  margin-bottom: -5px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* ==================== 对方消息：左边直角 ==================== */
-#wechat-chat-detail .message-item:not(.their-message) + .their-message .message-bubble {
-  border-bottom-left-radius: 4px !important;
-}
-
-#wechat-chat-detail .their-message:not(:has(+ .their-message)) .message-bubble {
-  border-top-left-radius: 4px !important;
-}
-
-#wechat-chat-detail .their-message + .their-message:has(+ .their-message) .message-bubble {
-  border-top-left-radius: 4px !important;
-  border-bottom-left-radius: 4px !important;
-}
-
-/* ==================== 我方消息：右边直角 ==================== */
-#wechat-chat-detail .message-item:not(.my-message) + .my-message .message-bubble {
-  border-bottom-right-radius: 4px !important;
-}
-
-#wechat-chat-detail .my-message:not(:has(+ .my-message)) .message-bubble {
-  border-top-right-radius: 4px !important;
-}
-
-#wechat-chat-detail .my-message + .my-message:has(+ .my-message) .message-bubble {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
-}
-
-/* ============ 聊天布局 ============ */
-/* 为所有消息行开启相对定位 */
-#wechat-chat-detail .their-message,
-#wechat-chat-detail .my-message {
-  position: relative !important;
-}
-
-/* 第一条消息 */
-#wechat-chat-detail .their-message,
-#wechat-chat-detail .my-message {
-  padding-top: 35px !important;
-  margin-top: 10px !important;
-}
-
-/* 对方的第一条消息：头像移到顶部 */
-#wechat-chat-detail .their-message .avatar,
-#wechat-chat-detail .their-message [class*="avatar"] {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-}
-
-/* 我方的第一条消息：头像移到顶部 */
-#wechat-chat-detail .my-message .avatar,
-#wechat-chat-detail .my-message [class*="avatar"] {
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-}
-
-/* 对方的连续消息 */
-#wechat-chat-detail .their-message + .their-message {
-  padding-top: 2px !important;
-  margin-top: 0 !important;
-}
-
-/* 隐藏连续消息的头像 */
-#wechat-chat-detail .their-message + .their-message .avatar,
-#wechat-chat-detail .their-message + .their-message [class*="avatar"] {
-  display: none !important;
-}
-
-/* 隐藏连续消息的角标 */
-#wechat-chat-detail .their-message + .their-message .message-bubble::before {
-  display: none !important;
-}
-
-/* 我方的连续消息 */
-#wechat-chat-detail .my-message + .my-message {
-  padding-top: 2px !important;
-  margin-top: 0 !important;
-}
-
-/* 隐藏连续消息的头像 */
-#wechat-chat-detail .my-message + .my-message .avatar,
-#wechat-chat-detail .my-message + .my-message [class*="avatar"] {
-  display: none !important;
-}
-
-/* 隐藏连续消息的角标 */
-#wechat-chat-detail .my-message + .my-message .message-bubble::before {
-  display: none !important;
-}
-
-/* 消息框加表情装饰 */
-#wechat-chat-detail .their-message,
-#wechat-chat-detail .my-message {
-  position: relative !important;
-}
-
-/* 对方头像右侧装饰 */
-#wechat-chat-detail .their-message::after {
-  content: "𝒍𝒐𝒗𝒆𝒖.♡︎" !important;
-  position: absolute !important;
-  left: 35px !important;
-  top: 12px !important;
-  font-size: 12px !important;
-  color: #555 !important;
-  transform: none !important;
-}
-
-/* 我方头像左侧装饰 */
-#wechat-chat-detail .my-message::after {
-  content: "𝒶𝓁𝓌𝒶𝓎𝓈.♡" !important;
-  position: absolute !important;
-  right: 35px !important;
-  top: 12px !important;
-  font-size: 12px !important;
-  color: #555 !important;
-  transform: none !important;
-}
-
-/* 连发消息隐藏装饰符号 */
-#wechat-chat-detail .their-message + .their-message::after,
-#wechat-chat-detail .my-message + .my-message::after {
-  display: none !important;
-}
-
-/* 转账卡片 - 磨砂透明 */
-#wechat-chat-detail .transfer-bubble {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(180, 180, 180, 0.5) !important;
-  border-radius: 12px !important;
-  padding: 10px 14px !important;
-  width: auto !important;
-  min-width: 220px !important;
-  max-width: 280px !important;
-  color: #000 !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-}
-
-#wechat-chat-detail .my-message .transfer-bubble {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(180, 180, 180, 0.5) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-}
-
-#wechat-chat-detail .transfer-bubble::before,
-#wechat-chat-detail .transfer-bubble::after {
-  display: none !important;
-}
-
-#wechat-chat-detail .transfer-bubble-top {
-  margin-bottom: 0 !important;
-  align-items: center !important;
-}
-
-#wechat-chat-detail .transfer-bubble-bottom {
-  display: none !important;
-}
-
-/* 转账图标 */
-#wechat-chat-detail .transfer-icon-wrapper {
-  width: 32px !important;
-  height: 32px !important;
-  background: url(https://i.postimg.cc/YCnVv0Xs/image.png) center/contain no-repeat !important;
-  border-radius: 0 !important;
-  border: none !important;
-}
-
-#wechat-chat-detail .my-message .transfer-icon-wrapper {
-  background: url(https://i.postimg.cc/YCnVv0Xs/image.png) center/contain no-repeat !important;
-  border: none !important;
-}
-
-#wechat-chat-detail .transfer-icon-wrapper i {
-  display: none !important;
-}
-
-#wechat-chat-detail .transfer-info {
-  flex: 1 !important;
-  align-items: flex-start !important;
-  margin-left: 12px !important;
-  overflow: hidden !important;
-}
-
-#wechat-chat-detail .transfer-amount {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  color: #676767 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  max-width: 100% !important;
-}
-
-#wechat-chat-detail .transfer-title {
-  font-size: 11px !important;
-  color: #999 !important;
-  margin-top: 2px !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  max-width: 100% !important;
-}
-
-#wechat-chat-detail .transfer-extra-text {
+/* ========== 装饰文字 ========== */
+#chat-window .chat-header-name::before {
+  content: "✩₊ 행복 손에 닿을 듯 가깝다.*✩" !important;
   display: block !important;
   font-size: 11px !important;
-  color: #ccc !important;
-  font-family: 'Georgia', serif !important;
-  font-style: italic !important;
-  align-self: center !important;
-}
-
-#wechat-chat-detail .transfer-extra-text::after {
-  content: "♡⁺ʚ 행복 ɞ⁺♡" !important;
+  font-weight: 400 !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  margin-bottom: 2px !important;
 }
