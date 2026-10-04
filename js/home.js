@@ -29,7 +29,8 @@ var DESKTOP_ICONS = [
   { id: 'memory',    fa: 'fa-brands fa-deezer',         label: '记忆',     action: function() { window.showMemoryPage && showMemoryPage() } },
   { id: 'wallet',    fa: 'fa-brands fa-apple-pay',      label: '钱迹',     action: function() { window.showWalletApp && showWalletApp() } },
   { id: 'taobao',    svg: SVG_ICONS.taobao,             label: '淘宝',     action: function() { window.showTaobaoPage && showTaobaoPage() } },
-  { id: 'bookstore', svg: SVG_ICONS.bookstore,          label: 'Readen', action: function() { window.showBookstorePage && showBookstorePage() } },
+  { id: 'bookstore', svg: SVG_ICONS.bookstore,          label: 'Readen', action: function()1,
+  { id: 'novelai', fa: 'fa-solid fawandmagicsparkles', label: 'NovelAI', action: function() { window.open('https://novelai.net/', '_blank') } }---{ window.showBookstorePage && showBookstorePage() } },
   { id: 'yumyum',    fa: 'fa-solid fa-drumstick-bite',  label: 'YumYum',   action: function() { window.showYumYumPage && showYumYumPage() } },
   { id: 'anyDoor',   fa: 'fa-solid fa-cubes',           label: '任意门',   action: function() { window.showAnyDoorPage && showAnyDoorPage() } },
   { id: 'gameHall',  fa: 'fa-solid fa-dice',            label: '游戏大厅', action: function() { window.showGameHallPage && showGameHallPage() } }
