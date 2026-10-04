@@ -6832,3 +6832,140 @@ html.has-android-bottom-inset .chat-input-bar {
   margin-bottom: 2px !important;
 }
 
+
+/* Faint Silk 浅丝 适配主题 */
+
+/* Faint Silk 浅丝 适配版 - 弯弯小手机主题 */
+
+/* ========== 顶栏区域 ========== */
+/* 顶栏保持原样，不透明 */
+
+/* 返回按钮 - 磨砂玻璃 */
+#chat-window .header-back {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#chat-window .header-back i {
+  color: #000 !important;
+  font-size: 20px !important;
+}
+
+/* 设置按钮 - 磨砂玻璃 */
+#chat-window .btn-icon#btn-chat-settings {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#chat-window .btn-icon#btn-chat-settings i {
+  color: #000 !important;
+}
+
+/* 标题 */
+#chat-window .chat-header-name {
+  color: #000 !important;
+  font-weight: 500 !important;
+}
+
+#chat-window .chat-header-status {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========== 消息区域 ========== */
+#chat-window .chat-messages {
+  background: transparent !important;
+}
+
+/* 消息气泡 - 磨砂透明 */
+#chat-window .msg-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 时间戳 */
+#chat-window .msg-bubble-time {
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 10px !important;
+}
+
+/* ========== 输入栏 ========== */
+#chat-window .chat-input-bar {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+#chat-window .chat-input {
+  color: #000 !important;
+  background: transparent !important;
+}
+
+#chat-window .chat-input::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+#chat-window .chat-input-icon i {
+  color: #000 !important;
+}
+
+/* ========== 最近联系人界面美化 ========== */
+#wechat-page .wechat-main,
+#wechat-page .chat-list,
+#wechat-page .contact-list {
+  background: transparent !important;
+}
+
+#wechat-page .chat-item,
+#wechat-page .contact-item {
+  border-radius: 16px !important;
+  margin: 4px 12px !important;
+  padding: 10px 12px !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+#wechat-page .wechat-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+}
+
+/* ========== 装饰文字 ========== */
+#chat-window .chat-header-name::before {
+  content: "✩₊ 模糊的世界 唯独你最清晰 *✩" !important;
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  margin-bottom: 2px !important;
+}
+
