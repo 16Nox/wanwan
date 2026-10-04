@@ -4177,6 +4177,95 @@ async function seedStardewCharacters() {
     // 标记v4已完成
     await db.config.put({ key: 'stardew_seeded_v4', value: true })
     console.log('星露谷角色v4更新完成，共', charIds.length, '位角色')
+
+    // ===== v5: 导入历史聊天记录 =====
+    const v5flag = await db.config.get('stardew_seeded_v5')
+    if (!v5flag) {
+      try {
+        const resp = await fetch('/js/stardew_messages.json')
+        const messagesData = await resp.json()
+
+        // 英文名 → 中文名映射
+        const nameMap = {
+          'Sebastian': '塞巴斯蒂安',
+          'Shane': '谢恩',
+          'Abigail': '阿比盖尔',
+          'Sam': '萨姆',
+          'Penny': '潘妮'
+        }
+
+        // 中文名 → charId
+        const charIdByName = {}
+        for (let i = 0; i < stardewChars.length; i++) {
+          charIdByName[stardewChars[i].name] = charIds[i]
+        }
+
+        for (const [engName, messages] of Object.entries(messagesData)) {
+          const cnName = nameMap[engName]
+          if (!cnName || !charIdByName[cnName]) continue
+          const charId = charIdByName[cnName]
+
+          // 找到对应的chat
+          for (const user of users) {
+            const chat = await db.chats.where('[ownerUid+charId]').equals([user.id, charId]).first()
+            if (!chat) continue
+
+            // 先清空之前发的开场白
+            const oldMsgs = await db.messages.where('chatId').equals(chat.id).toArray()
+            if (oldMsgs.length > 0) await db.messages.bulkDelete(oldMsgs.map(m => m.id))
+
+            // 导入历史消息，时间从30天前开始
+            let baseTime = Date.now() - 30 * 24 * 60 * 60 * 1000
+            let importedCount = 0
+
+            for (const line of messages) {
+              if (!line || typeof line !== 'string') continue
+              let role = null
+              let content = ''
+
+              if (line.startsWith('SYSTEM:')) {
+                // 系统消息（日期分隔），跳过或作为系统消息
+                continue
+              } else if (line.startsWith('PLAYER: ')) {
+                role = 'user'
+                content = line.substring(8).trim()
+              } else {
+                // 角色消息，格式是 "角色名: 内容"
+                const colonIdx = line.indexOf(': ')
+                if (colonIdx > 0) {
+                  const sender = line.substring(0, colonIdx)
+                  if (sender === engName) {
+                    role = 'assistant'
+                    content = line.substring(colonIdx + 2).trim()
+                  }
+                }
+              }
+
+              if (role && content) {
+                baseTime += Math.floor(Math.random() * 8 + 3) * 60 * 1000 // 每条间隔3-11分钟
+                await db.messages.add({
+                  chatId: chat.id,
+                  charId: charId,
+                  role: role,
+                  content: content,
+                  createdAt: baseTime
+                })
+                importedCount++
+              }
+            }
+
+            // 更新未读数为0（历史记录不需要未读）
+            await db.chats.update(chat.id, { unread: 0 })
+            console.log(`导入 ${cnName} 聊天记录: ${importedCount} 条`)
+          }
+        }
+
+        await db.config.put({ key: 'stardew_seeded_v5', value: true })
+        console.log('星露谷聊天记录导入完成')
+      } catch (e) {
+        console.error('导入星露谷聊天记录失败', e)
+      }
+    }
   } catch (e) {
     console.error('星露谷角色v2更新失败', e)
   }
