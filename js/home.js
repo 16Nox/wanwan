@@ -4034,11 +4034,11 @@ window.showNovelAIPage = function() {
   }
 }
 
-// ===== 星露谷角色自动初始化 v4（短签名+完整长设定） =====
+// ===== 星露谷角色自动初始化 v5（短签名+完整长设定+历史聊天记录） =====
 async function seedStardewCharacters() {
   try {
-    // 检查是否已经更新到v4
-    const flag = await db.config.get('stardew_seeded_v4')
+    // 检查是否已经更新到v5
+    const flag = await db.config.get('stardew_seeded_v5')
     if (flag) return
 
     // 等一下，确保数据库和微信初始化完成
