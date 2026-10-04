@@ -6720,3 +6720,623 @@ html.has-android-bottom-inset .chat-input-bar {
   background: rgba(87, 107, 149, 0.1);
   white-space: nowrap;
 }
+/* Faint Silk 娴呬笣 by 钀藉悷 - 寰俊鑱婂ぉ缇庡寲涓婚 */
+
+/* ================= 椤舵爮鍖哄煙 ================= */
+/* 澶村儚鐙珛 - 鐢ㄩ《鏍忚嚜宸辩殑浼厓绱?*/
+#wechat-chat-detail .chat-header-detail::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 55px !important;
+  height: 55px !important;
+  border-radius: 50% !important;
+  background: url(https://i.postimg.cc/1352RwKs/image.jpg) center/cover no-repeat !important;
+  top: 10px !important;
+  left: 47% !important;
+  transform: translateX(-42px) !important;
+  z-index: 3 !important;
+}
+
+#wechat-chat-detail .chat-header-detail::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 55px !important;
+  height: 55px !important;
+  border-radius: 50% !important;
+  background: url(https://i.postimg.cc/DycRKBL9/image.jpg) center/cover no-repeat !important;
+  top: 10px !important;
+  left: 47% !important;
+  transform: translateX(8px) !important;
+  z-index: 3 !important;
+}
+
+/* 娓呴櫎鏍囬鐨?::after */
+#wechat-chat-detail .chat-header-detail .header-center::after {
+  display: none !important;
+}
+
+/* 鏍囬涓婃柟鏂囨 */
+#wechat-chat-detail .chat-header-detail .header-center::before {
+  content: "鉁┾倞頄夒车靻愳棎 雼快潉 霌?臧€旯濍嫟.*鉁? !important;
+  display: block !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  white-space: nowrap !important;
+  color: #000 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  z-index: 2 !important;
+}
+
+/* 鏍囬閫忔槑 */
+#wechat-chat-detail .chat-header-detail .header-center {
+  color: #000 !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 80px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 8px 40px !important;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+}
+
+/* 椤舵爮瀹屽叏閫忔槑 */
+#wechat-chat-detail .chat-header-detail {
+  background: transparent !important;
+  min-height: 110px !important;
+  height: auto !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 杩斿洖鎸夐挳 - 纾ㄧ爞鐜荤拑 + 鏂板浘鏍?*/
+#wechat-chat-detail .header-left {
+  position: absolute !important;
+  left: 20px !important;
+  top: 35px !important;
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 3 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  background-image: url(https://i.postimg.cc/x1x7X8xD/image.png) !important;
+  background-size: 16px 13px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 闅愯棌鍘熸潵鐨勮繑鍥炲浘鏍?*/
+#wechat-chat-detail .header-left svg,
+#wechat-chat-detail .header-left i,
+#wechat-chat-detail .header-left img {
+  display: none !important;
+}
+
+/* 鏇村鎸夐挳 - 纾ㄧ爞鐜荤拑 + 鏂板浘鏍?*/
+#wechat-chat-detail .header-right {
+  width: 40px !important;
+  height: 40px !important;
+  position: absolute !important;
+  right: 20px !important;
+  z-index: 2 !important;
+  top: 35px !important;
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  background-image: url(https://i.postimg.cc/0y2F5DCz/image.png) !important;
+  background-size: 15px 15px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 闅愯棌鍘熸潵鐨勬洿澶氬浘鏍?*/
+#wechat-chat-detail .header-right svg,
+#wechat-chat-detail .header-right i,
+#wechat-chat-detail .header-right img {
+  display: none !important;
+}
+
+/* 鑱婂ぉ鍖哄煙 */
+#wechat-chat-detail .message-list {
+  background: transparent !important;
+  padding-top: 0px !important;
+}
+
+#wechat-chat-detail .message-item {
+  margin: 1px 0 !important;
+}
+
+/* 鏃堕棿鎴?- 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail .chat-time-center span {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-size: 12px !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  padding: 3px 10px !important;
+}
+
+/* 绯荤粺鎻愮ず/鎾ゅ洖/鎴充竴鎴?- 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail .system-msg span,
+#wechat-chat-detail .recall-msg span,
+#wechat-chat-detail [class*="poke"] span,
+#wechat-chat-detail [class*="tip"] span {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-size: 12px !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  padding: 3px 10px !important;
+}
+
+/* 姘旀场鐘舵€佹椂闂村彉榛?*/
+#wechat-chat-detail .bubble-status-time span {
+  color: #000 !important;
+  font-size: 10px !important;
+}
+
+/* 寮曠敤鍧?- 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail .quote-block {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 寮曠敤棰勮 - 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail #quote-preview {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-left: 3px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 搴曢儴杈撳叆鏍?- 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail .chat-input-bar {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  margin: 10px 12px !important;
+  padding: 10px 14px !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  width: calc(100% - 24px) !important;
+  box-sizing: border-box !important;
+}
+
+/* --- 搴曟爮鍗犱綅鏂囧瓧 --- */
+#wechat-chat-detail #text-input-container {
+  position: relative !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  height: 30px !important;
+  border: none !important;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.3) !important;
+}
+
+#wechat-chat-detail #text-input-container::after {
+  content: "猸掋€傗櫋鈧?饾摙饾摻饾摢饾摣饾摰饾摦 饾摫饾摢饾摴饾摴饾摬饾摲饾摦饾摷饾摷 鈧娾櫋 銆傗瓛" !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #000 !important;
+  font-size: 12px !important;
+  opacity: 0.6 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  transition: opacity 0s ease-in-out !important;
+}
+
+#wechat-chat-detail #text-input-container textarea {
+  position: relative !important;
+  z-index: 2 !important;
+  background: transparent !important;
+}
+
+#wechat-chat-detail #text-input-container:has(textarea:not(:placeholder-shown))::after {
+  opacity: 0 !important;
+}
+
+#wechat-chat-detail .chat-input-bar input,
+#wechat-chat-detail #text-input-container textarea,
+#wechat-chat-detail .chat-input-bar [contenteditable="true"] {
+  color: #000 !important;
+  background: transparent !important;
+  font-size: 14px !important;
+}
+
+#wechat-chat-detail #voice-input-container {
+  background: transparent !important;
+  border-radius: 4px !important;
+}
+
+/* 搴曢儴鍥炬爣鏇挎崲 */
+.chat-input-bar img:nth-child(1) {
+  content: url('https://i.postimg.cc/qMGWdjyD/image.png') !important;
+  width: 19px !important;
+  height: 19px !important;
+}
+
+#wechat-chat-detail img#smile-icon {
+  background: url(https://i.postimg.cc/rwnbDsnc/image.png) center/contain no-repeat !important;
+  width: 19px !important;
+  height: 19px !important;
+  box-sizing: border-box !important;
+  padding-left: 19px !important;
+}
+
+#wechat-chat-detail img#plus-icon {
+  background: url(https://i.postimg.cc/VkGTJv7j/image.png) center/contain no-repeat !important;
+  width: 20px !important;
+  height: 20px !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+}
+
+#wechat-chat-detail img#voice-icon {
+  opacity: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+}
+
+#wechat-chat-detail .send-btn {
+  background: transparent !important;
+  color: transparent !important;
+  border: none !important;
+  width: 15px !important;
+  height: 15px !important;
+  background: url(https://i.postimg.cc/VkGTJv7j/image.png) center/contain no-repeat !important;
+}
+
+/* 鏃堕棿鎴冲墠闈㈠姞鍥炬爣 */
+#wechat-chat-detail .chat-time-center span::before,
+#wechat-chat-detail .system-msg span::before,
+#wechat-chat-detail .recall-msg span::before,
+#wechat-chat-detail [class*="poke"] span::before,
+#wechat-chat-detail [class*="tip"] span::before,
+#wechat-chat-detail .quote-block::before,
+#wechat-chat-detail #quote-preview::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: url('https://i.postimg.cc/sgDqf7J5/image.png') center/contain no-repeat !important;
+  margin-right: 6px !important;
+  vertical-align: middle !important;
+}
+
+/* 寮曠敤娑堟伅 - 鍥炬爣鍦ㄥ乏杈?*/
+#wechat-chat-detail .quote-block {
+  display: flex !important;
+  align-items: center !important;
+}
+
+#wechat-chat-detail .quote-block::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  background: url('https://i.postimg.cc/sgDqf7J5/image.png') center/contain no-repeat !important;
+  margin-right: 6px !important;
+}
+
+#wechat-chat-detail .message-list {
+  background: transparent !important;
+  padding-bottom: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* 鑱婂ぉ鍖哄煙寰€涓嬬Щ锛屼笉琚鑸爮閬尅 */
+#wechat-chat-detail .message-list {
+  padding-top: 0px !important;
+}
+
+/* ============ 姘旀场 ============ */
+/* 鑷繁鍙戠殑娑堟伅 - 纾ㄧ爞閫忔槑 + 鐏拌壊杈规 */
+#wechat-chat-detail .my-message .message-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 瀵规柟鍙戠殑娑堟伅 - 纾ㄧ爞閫忔槑 + 鐏拌壊杈规 */
+#wechat-chat-detail .their-message .message-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==================== 娑堟伅闂磋窛缂╁皬 ==================== */
+#wechat-chat-detail .message-item,
+#wechat-chat-detail .message-item .message-content,
+#wechat-chat-detail .message-item .bubble-wrapper,
+#wechat-chat-detail .message-item .msg-content-wrapper,
+#wechat-chat-detail .message-item > div {
+  margin-top: -5px !important;
+  margin-bottom: -5px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ==================== 瀵规柟娑堟伅锛氬乏杈圭洿瑙?==================== */
+#wechat-chat-detail .message-item:not(.their-message) + .their-message .message-bubble {
+  border-bottom-left-radius: 4px !important;
+}
+
+#wechat-chat-detail .their-message:not(:has(+ .their-message)) .message-bubble {
+  border-top-left-radius: 4px !important;
+}
+
+#wechat-chat-detail .their-message + .their-message:has(+ .their-message) .message-bubble {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+/* ==================== 鎴戞柟娑堟伅锛氬彸杈圭洿瑙?==================== */
+#wechat-chat-detail .message-item:not(.my-message) + .my-message .message-bubble {
+  border-bottom-right-radius: 4px !important;
+}
+
+#wechat-chat-detail .my-message:not(:has(+ .my-message)) .message-bubble {
+  border-top-right-radius: 4px !important;
+}
+
+#wechat-chat-detail .my-message + .my-message:has(+ .my-message) .message-bubble {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+/* ============ 鑱婂ぉ甯冨眬 ============ */
+/* 涓烘墍鏈夋秷鎭寮€鍚浉瀵瑰畾浣?*/
+#wechat-chat-detail .their-message,
+#wechat-chat-detail .my-message {
+  position: relative !important;
+}
+
+/* 绗竴鏉℃秷鎭?*/
+#wechat-chat-detail .their-message,
+#wechat-chat-detail .my-message {
+  padding-top: 35px !important;
+  margin-top: 10px !important;
+}
+
+/* 瀵规柟鐨勭涓€鏉℃秷鎭細澶村儚绉诲埌椤堕儴 */
+#wechat-chat-detail .their-message .avatar,
+#wechat-chat-detail .their-message [class*="avatar"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* 鎴戞柟鐨勭涓€鏉℃秷鎭細澶村儚绉诲埌椤堕儴 */
+#wechat-chat-detail .my-message .avatar,
+#wechat-chat-detail .my-message [class*="avatar"] {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+/* 瀵规柟鐨勮繛缁秷鎭?*/
+#wechat-chat-detail .their-message + .their-message {
+  padding-top: 2px !important;
+  margin-top: 0 !important;
+}
+
+/* 闅愯棌杩炵画娑堟伅鐨勫ご鍍?*/
+#wechat-chat-detail .their-message + .their-message .avatar,
+#wechat-chat-detail .their-message + .their-message [class*="avatar"] {
+  display: none !important;
+}
+
+/* 闅愯棌杩炵画娑堟伅鐨勮鏍?*/
+#wechat-chat-detail .their-message + .their-message .message-bubble::before {
+  display: none !important;
+}
+
+/* 鎴戞柟鐨勮繛缁秷鎭?*/
+#wechat-chat-detail .my-message + .my-message {
+  padding-top: 2px !important;
+  margin-top: 0 !important;
+}
+
+/* 闅愯棌杩炵画娑堟伅鐨勫ご鍍?*/
+#wechat-chat-detail .my-message + .my-message .avatar,
+#wechat-chat-detail .my-message + .my-message [class*="avatar"] {
+  display: none !important;
+}
+
+/* 闅愯棌杩炵画娑堟伅鐨勮鏍?*/
+#wechat-chat-detail .my-message + .my-message .message-bubble::before {
+  display: none !important;
+}
+
+/* 娑堟伅妗嗗姞琛ㄦ儏瑁呴グ */
+#wechat-chat-detail .their-message,
+#wechat-chat-detail .my-message {
+  position: relative !important;
+}
+
+/* 瀵规柟澶村儚鍙充晶瑁呴グ */
+#wechat-chat-detail .their-message::after {
+  content: "饾拲饾拹饾挆饾拞饾挅.鈾★笌" !important;
+  position: absolute !important;
+  left: 35px !important;
+  top: 12px !important;
+  font-size: 12px !important;
+  color: #555 !important;
+  transform: none !important;
+}
+
+/* 鎴戞柟澶村儚宸︿晶瑁呴グ */
+#wechat-chat-detail .my-message::after {
+  content: "饾挾饾搧饾搶饾挾饾搸饾搱.鈾? !important;
+  position: absolute !important;
+  right: 35px !important;
+  top: 12px !important;
+  font-size: 12px !important;
+  color: #555 !important;
+  transform: none !important;
+}
+
+/* 杩炲彂娑堟伅闅愯棌瑁呴グ绗﹀彿 */
+#wechat-chat-detail .their-message + .their-message::after,
+#wechat-chat-detail .my-message + .my-message::after {
+  display: none !important;
+}
+
+/* 杞处鍗＄墖 - 纾ㄧ爞閫忔槑 */
+#wechat-chat-detail .transfer-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  width: auto !important;
+  min-width: 220px !important;
+  max-width: 280px !important;
+  color: #000 !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+#wechat-chat-detail .my-message .transfer-bubble {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+#wechat-chat-detail .transfer-bubble::before,
+#wechat-chat-detail .transfer-bubble::after {
+  display: none !important;
+}
+
+#wechat-chat-detail .transfer-bubble-top {
+  margin-bottom: 0 !important;
+  align-items: center !important;
+}
+
+#wechat-chat-detail .transfer-bubble-bottom {
+  display: none !important;
+}
+
+/* 杞处鍥炬爣 */
+#wechat-chat-detail .transfer-icon-wrapper {
+  width: 32px !important;
+  height: 32px !important;
+  background: url(https://i.postimg.cc/YCnVv0Xs/image.png) center/contain no-repeat !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+#wechat-chat-detail .my-message .transfer-icon-wrapper {
+  background: url(https://i.postimg.cc/YCnVv0Xs/image.png) center/contain no-repeat !important;
+  border: none !important;
+}
+
+#wechat-chat-detail .transfer-icon-wrapper i {
+  display: none !important;
+}
+
+#wechat-chat-detail .transfer-info {
+  flex: 1 !important;
+  align-items: flex-start !important;
+  margin-left: 12px !important;
+  overflow: hidden !important;
+}
+
+#wechat-chat-detail .transfer-amount {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #676767 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}
+
+#wechat-chat-detail .transfer-title {
+  font-size: 11px !important;
+  color: #999 !important;
+  margin-top: 2px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}
+
+#wechat-chat-detail .transfer-extra-text {
+  display: block !important;
+  font-size: 11px !important;
+  color: #ccc !important;
+  font-family: 'Georgia', serif !important;
+  font-style: italic !important;
+  align-self: center !important;
+}
+
+#wechat-chat-detail .transfer-extra-text::after {
+  content: "鈾♀伜蕷 頄夒车 蔀鈦衡櫋" !important;
+}
+
