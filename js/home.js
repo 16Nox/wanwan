@@ -4034,11 +4034,11 @@ window.showNovelAIPage = function() {
   }
 }
 
-// ===== 星露谷角色自动初始化 v5（短签名+完整长设定+历史聊天记录） =====
+// ===== 星露谷角色自动初始化 v6（修复聊天记录导入） =====
 async function seedStardewCharacters() {
   try {
-    // 检查是否已经更新到v5
-    const flag = await db.config.get('stardew_seeded_v5')
+    // 检查是否已经更新到v6
+    const flag = await db.config.get('stardew_seeded_v6')
     if (flag) return
 
     // 等一下，确保数据库和微信初始化完成
@@ -4178,9 +4178,9 @@ async function seedStardewCharacters() {
     await db.config.put({ key: 'stardew_seeded_v4', value: true })
     console.log('星露谷角色v4更新完成，共', charIds.length, '位角色')
 
-    // ===== v5: 导入历史聊天记录 =====
-    const v5flag = await db.config.get('stardew_seeded_v5')
-    if (!v5flag) {
+    // ===== v6: 导入历史聊天记录 =====
+    const v6flag = await db.config.get('stardew_seeded_v6')
+    if (!v6flag) {
       try {
         const resp = await fetch('/js/stardew_messages.json')
         const messagesData = await resp.json()
@@ -4260,7 +4260,7 @@ async function seedStardewCharacters() {
           }
         }
 
-        await db.config.put({ key: 'stardew_seeded_v5', value: true })
+        await db.config.put({ key: 'stardew_seeded_v6', value: true })
         console.log('星露谷聊天记录导入完成')
       } catch (e) {
         console.error('导入星露谷聊天记录失败', e)
