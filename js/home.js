@@ -4001,7 +4001,7 @@ window.setWallpaper = function(imageUrl) {
   }
 }
 
-// ===== NovelAI 内嵌页面 =====
+// ===== NovelAI 中转页面 =====
 window.showNovelAIPage = function() {
   var existing = document.getElementById('novelai-page')
   if (existing) existing.remove()
@@ -4015,15 +4015,21 @@ window.showNovelAIPage = function() {
   header.innerHTML = '<button id="novelai-back" style="margin-right:12px;padding:6px 12px;border:none;background:#007aff;color:#fff;border-radius:8px;cursor:pointer;font-size:14px;">← 返回</button>' +
     '<span style="font-size:16px;font-weight:600;color:#333;">NovelAI</span>'
 
-  var iframe = document.createElement('iframe')
-  iframe.src = 'https://novelai.net/'
-  iframe.style.cssText = 'flex:1;border:none;width:100%;'
+  var body = document.createElement('div')
+  body.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;'
+  body.innerHTML = '<div style="font-size:48px;margin-bottom:16px;">✨</div>' +
+    '<h2 style="font-size:20px;color:#333;margin:0 0 12px 0;">NovelAI AI绘画</h2>' +
+    '<p style="font-size:14px;color:#666;line-height:1.6;margin:0 0 24px 0;">NovelAI 为了安全，不允许在小手机内直接打开。<br>点击下方按钮在新标签页中访问。</p>' +
+    '<button id="novelai-open" style="padding:12px 32px;background:#007aff;color:#fff;border:none;border-radius:24px;font-size:16px;cursor:pointer;">打开 NovelAI</button>'
 
   page.appendChild(header)
-  page.appendChild(iframe)
+  page.appendChild(body)
   document.body.appendChild(page)
 
   document.getElementById('novelai-back').onclick = function() {
     page.remove()
+  }
+  document.getElementById('novelai-open').onclick = function() {
+    window.open('https://novelai.net/', '_blank')
   }
 }
