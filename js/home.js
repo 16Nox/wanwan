@@ -4033,3 +4033,72 @@ window.showNovelAIPage = function() {
     window.open('https://novelai.net/', '_blank')
   }
 }
+
+// ===== 星露谷角色自动初始化 =====
+async function seedStardewCharacters() {
+  try {
+    // 检查是否已经初始化过
+    const flag = await db.config.get('stardew_seeded_v1')
+    if (flag) return
+
+    // 等一下，确保数据库和微信初始化完成
+    await new Promise(r => setTimeout(r, 2000))
+
+    // 12位可攻略角色
+    const stardewChars = [
+      { name: '阿比盖尔', nick: 'Abigail', gender: '女', role: '小镇少女', description: '紫发少女，热爱冒险与通灵，常去矿洞探险，喜欢笛子和电子游戏。' },
+      { name: '艾米丽', nick: 'Emily', gender: '女', role: '裁缝/酒吧招待', description: '灵性十足的女孩，热爱水晶、自然与舞蹈，总是热心帮助别人。' },
+      { name: '海莉', nick: 'Haley', gender: '女', role: '摄影师', description: '金发时尚达人，一开始有点势利，相处久了会发现她温暖感恩的一面。' },
+      { name: '莉亚', nick: 'Leah', gender: '女', role: '艺术家', description: '从城市搬到小镇的画家，热爱自然与简单生活，擅长木雕和绘画。' },
+      { name: '玛鲁', nick: 'Maru', gender: '女', role: '发明家', description: '乐观的理工少女，热爱科学、星空和修理，梦想做出造福人类的发明。' },
+      { name: '潘妮', nick: 'Penny', gender: '女', role: '家庭教师', description: '害羞温柔的女孩，照顾醉酒的妈妈，教镇上的孩子读书，贫穷但有尊严。' },
+      { name: '亚历克斯', nick: 'Alex', gender: '男', role: '校队运动员', description: '热爱运动的金发少年，看似自恋其实内心温柔，梦想成为职业运动员。' },
+      { name: '艾利欧特', nick: 'Elliott', gender: '男', role: '作家', description: '住在海边小屋的浪漫作家，虚荣但善良，热爱诗歌、美食和自然。' },
+      { name: '哈维', nick: 'Harvey', gender: '男', role: '小镇医生', description: '小镇诊所的医生，礼貌但有点焦虑，认真负责，热爱飞行和健康生活。' },
+      { name: '萨姆', nick: 'Sam', gender: '男', role: '音乐人', description: '乐观开朗的滑板少年，热爱音乐和乐队，有点懒散但很有创造力。' },
+      { name: '塞巴斯蒂安', nick: 'Sebastian', gender: '男', role: '程序员/辍学青年', description: '阴郁寡言的紫发少年，热爱独处、雨天、编程和摩托车，和继父关系紧张。' },
+      { name: '谢恩', nick: 'Shane', gender: '男', role: '牧场工人', description: '粗声讽刺的 joja 超市员工，内心善良但抑郁，和玛妮、贾斯像家人一样。' }
+    ]
+
+    // 创建角色
+    const charIds = []
+    for (const c of stardewChars) {
+      const id = await db.characters.add({
+        type: 'npc',
+        group: '星露谷',
+        name: c.name,
+        nick: c.nick,
+        gender: c.gender,
+        role: c.role,
+        description: c.description,
+        avatar: '',
+        identity: { account: '', password: '', phone: '', idCard: '', bankCard: '', bankPass: '' },
+        relations: []
+      })
+      charIds.push(id)
+    }
+
+    // 找到所有用户角色，把星露谷角色加到他们的好友列表里
+    const users = await db.characters.where('type').equals('user').toArray()
+    for (const user of users) {
+      const friendKey = `friends_${user.id}`
+      const existingRow = await db.config.get(friendKey)
+      const existing = existingRow?.value || []
+      const newFriends = [...new Set([...existing, ...charIds])]
+      await db.config.put({ key: friendKey, value: newFriends })
+    }
+
+    // 标记已初始化
+    await db.config.put({ key: 'stardew_seeded_v1', value: true })
+    console.log('星露谷角色初始化完成，共添加', charIds.length, '位角色')
+  } catch (e) {
+    console.error('星露谷角色初始化失败', e)
+  }
+}
+
+// 页面加载后执行
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(seedStardewCharacters, 3000))
+} else {
+  setTimeout(seedStardewCharacters, 3000)
+}
