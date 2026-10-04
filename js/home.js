@@ -4169,7 +4169,7 @@ async function seedStardewCharacters() {
         // 打开主动回复开关
         await db.config.put({
           key: `chatActiveReply_${chat.id}`,
-          value: { enabled: true, intervalMinutes: 60, dndEnabled: true, dndStart: '00:00', dndEnd: '08:00' }
+          value: { enabled: true, intervalSeconds: 60, dndEnabled: true, dndStart: '00:00', dndEnd: '08:00' }
         })
       }
     }

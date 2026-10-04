@@ -70,12 +70,12 @@ const CHAT_TIME_SETTINGS_DEFAULT = { enabled: true, mode: 'center', awareness: f
 const CHAT_BILINGUAL_DEFAULT = { enabled: false, sourceLang: 'ko', targetLang: 'zh-Hans' }
 const CHAT_ACTIVE_REPLY_DEFAULT = {
   enabled: false,
-  intervalMinutes: 30,
+  intervalSeconds: 60,
   dndEnabled: true,
   dndStart: '00:00',
   dndEnd: '08:00'
 }
-const CHAT_ACTIVE_REPLY_CHECK_MS = 120 * 1000
+const CHAT_ACTIVE_REPLY_CHECK_MS = 5 * 1000
 const CHAT_BILINGUAL_LANGUAGES = [
   { code: 'ko', label: '韩语' },
   { code: 'en', label: '英语' },
@@ -383,11 +383,11 @@ function normalizeDayTimeValue(value, fallback = '00:00') {
 }
 
 function normalizeChatActiveReplySettings(value) {
-  const intervalMinutes = parseInt(value?.intervalMinutes, 10)
+  const intervalSeconds = parseFloat(value?.intervalSeconds ?? value?.intervalMinutes)
   return {
     enabled: !!value?.enabled,
-    intervalMinutes: Number.isFinite(intervalMinutes) ? Math.max(1, intervalMinutes) : CHAT_ACTIVE_REPLY_DEFAULT.intervalMinutes,
-    dndEnabled: value?.dndEnabled !== undefined ? !!value.dndEnabled : CHAT_ACTIVE_REPLY_DEFAULT.dndEnabled,
+    intervalSeconds: Number.isFinite(intervalSeconds) ? Math.max(10, intervalSeconds) : (CHAT_ACTIVE_REPLY_DEFAULT.intervalSeconds || 60),
+    dndEnabled: value?.dndEnabled !== undefined ? !!value?.dndEnabled : CHAT_ACTIVE_REPLY_DEFAULT.dndEnabled,
     dndStart: normalizeDayTimeValue(value?.dndStart, CHAT_ACTIVE_REPLY_DEFAULT.dndStart),
     dndEnd: normalizeDayTimeValue(value?.dndEnd, CHAT_ACTIVE_REPLY_DEFAULT.dndEnd)
   }
@@ -4615,7 +4615,7 @@ function bindChatWindowEvents(page) {
     }
   }
 
-  // 仅发送消息，不触发 AI 回复
+  // 发送消息后自动触发 AI 回复
   const doSend = async () => {
     if (page._textSendPending) return false
     page._textSendPending = true
@@ -4623,6 +4623,16 @@ function bindChatWindowEvents(page) {
       const sent = await sendTextMessage(page)
       input.style.height = 'auto'
       updatePlusBtnUI()
+      // 自动触发 AI 回复
+      if (sent) {
+        const _charId = parseInt(page.dataset.charId)
+        const target = await db.characters.get(_charId)
+        if (target?.type !== 'online_friend' && !window.isCallActiveWith?.(_charId)) {
+          const chatId = parseInt(page.dataset.chatId)
+          const charId = parseInt(page.dataset.charId)
+          startPrivateAIReply(chatId, charId, { allowMcp: true })
+        }
+      }
       return sent
     } catch (error) {
       reportWechatSendError(error)
@@ -6294,7 +6304,7 @@ async function runWechatActiveReplyCheck() {
       if (!lastMessage) continue
       if (lastMessage.role !== 'assistant' && lastMessage.role !== 'user') continue
       const idleMs = Date.now() - (Number(lastMessage.createdAt) || 0)
-      if (!Number.isFinite(idleMs) || idleMs < cfg.intervalMinutes * 60 * 1000) continue
+      if (!Number.isFinite(idleMs) || idleMs < cfg.intervalSeconds * 1000) continue
       const fingerprint = buildActiveReplyTriggerFingerprint(chat.id, lastMessage)
       if (_activeReplyTriggeredFingerprints.get(chat.id) === fingerprint) continue
       _activeReplyTriggeredFingerprints.set(chat.id, fingerprint)
@@ -15901,8 +15911,8 @@ function buildActiveReplySectionHTML(rawSettings) {
       </div>
       <div id="cs-active-reply-fields" style="${cfg.enabled ? '' : 'display:none'}">
         <div class="cs-memory-row">
-          <span>固定间隔（分钟）</span>
-          <input class="input-field cs-memory-input" id="cs-active-reply-interval" type="number" min="1" step="1" value="${cfg.intervalMinutes}">
+          <span>固定间隔（秒）</span>
+          <input class="input-field cs-memory-input" id="cs-active-reply-interval" type="number" min="10" step="10" value="${cfg.intervalSeconds}">
         </div>
         <div class="cs-status-toggle-row">
           <span>启用免打扰</span>
@@ -16737,7 +16747,7 @@ function readChatSettingsTimeValue(settingsPage) {
 function readChatSettingsActiveReplyValue(settingsPage) {
   return normalizeChatActiveReplySettings({
     enabled: !!settingsPage.querySelector('#cs-active-reply-enabled')?.checked,
-    intervalMinutes: settingsPage.querySelector('#cs-active-reply-interval')?.value,
+    intervalSeconds: settingsPage.querySelector('#cs-active-reply-interval')?.value,
     dndEnabled: !!settingsPage.querySelector('#cs-active-reply-dnd-enabled')?.checked,
     dndStart: settingsPage.querySelector('#cs-active-reply-dnd-start')?.value,
     dndEnd: settingsPage.querySelector('#cs-active-reply-dnd-end')?.value
