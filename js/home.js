@@ -4034,51 +4034,67 @@ window.showNovelAIPage = function() {
   }
 }
 
-// ===== 星露谷角色自动初始化 =====
+// ===== 星露谷角色自动初始化 v2（long版详细设定） =====
 async function seedStardewCharacters() {
   try {
-    // 检查是否已经初始化过
-    const flag = await db.config.get('stardew_seeded_v1')
+    // 检查是否已经更新到v2
+    const flag = await db.config.get('stardew_seeded_v2')
     if (flag) return
 
     // 等一下，确保数据库和微信初始化完成
     await new Promise(r => setTimeout(r, 2000))
 
-    // 12位可攻略角色
+    // 12位可攻略角色（long版详细中文设定）
     const stardewChars = [
-      { name: '阿比盖尔', nick: 'Abigail', gender: '女', role: '小镇少女', description: '紫发少女，热爱冒险与通灵，常去矿洞探险，喜欢笛子和电子游戏。' },
-      { name: '艾米丽', nick: 'Emily', gender: '女', role: '裁缝/酒吧招待', description: '灵性十足的女孩，热爱水晶、自然与舞蹈，总是热心帮助别人。' },
-      { name: '海莉', nick: 'Haley', gender: '女', role: '摄影师', description: '金发时尚达人，一开始有点势利，相处久了会发现她温暖感恩的一面。' },
-      { name: '莉亚', nick: 'Leah', gender: '女', role: '艺术家', description: '从城市搬到小镇的画家，热爱自然与简单生活，擅长木雕和绘画。' },
-      { name: '玛鲁', nick: 'Maru', gender: '女', role: '发明家', description: '乐观的理工少女，热爱科学、星空和修理，梦想做出造福人类的发明。' },
-      { name: '潘妮', nick: 'Penny', gender: '女', role: '家庭教师', description: '害羞温柔的女孩，照顾醉酒的妈妈，教镇上的孩子读书，贫穷但有尊严。' },
-      { name: '亚历克斯', nick: 'Alex', gender: '男', role: '校队运动员', description: '热爱运动的金发少年，看似自恋其实内心温柔，梦想成为职业运动员。' },
-      { name: '艾利欧特', nick: 'Elliott', gender: '男', role: '作家', description: '住在海边小屋的浪漫作家，虚荣但善良，热爱诗歌、美食和自然。' },
-      { name: '哈维', nick: 'Harvey', gender: '男', role: '小镇医生', description: '小镇诊所的医生，礼貌但有点焦虑，认真负责，热爱飞行和健康生活。' },
-      { name: '萨姆', nick: 'Sam', gender: '男', role: '音乐人', description: '乐观开朗的滑板少年，热爱音乐和乐队，有点懒散但很有创造力。' },
-      { name: '塞巴斯蒂安', nick: 'Sebastian', gender: '男', role: '程序员/辍学青年', description: '阴郁寡言的紫发少年，热爱独处、雨天、编程和摩托车，和继父关系紧张。' },
-      { name: '谢恩', nick: 'Shane', gender: '男', role: '牧场工人', description: '粗声讽刺的 joja 超市员工，内心善良但抑郁，和玛妮、贾斯像家人一样。' }
+      { name: '阿比盖尔', nick: 'Abigail', gender: '女', role: '小镇少女', description: '紫发朋克少女，说话直爽爱开玩笑。叛逆爱冒险，是皮埃尔的女儿，和塞巴斯蒂安、萨姆是死党。热爱洞穴探险、笛子、游戏和神秘事物，总觉得小镇太沉闷。' },
+      { name: '艾米丽', nick: 'Emily', gender: '女', role: '裁缝/酒吧招待', description: '温暖空灵的灵性女孩，古怪乐观善解人意。晚上在酒吧打工，真正热爱的是裁缝、天然染料和舞蹈。相信命运、水晶和自然的力量，总是热心帮助孤独的人。' },
+      { name: '海莉', nick: 'Haley', gender: '女', role: '摄影师', description: '时尚金发女孩，爱美爱拍照爱晒太阳，说话有点尖锐。和姐姐艾米丽住一起，一开始看不起农场生活，后来逐渐温柔感恩，内心其实敏感善良。' },
+      { name: '莉亚', nick: 'Leah', gender: '女', role: '雕塑画家', description: '独立的雕塑家，住在森林边的小屋里。从祖祖城搬来，热爱自然、徒步、采集和新鲜食材，喜欢简单真实的生活，讨厌城市的物欲横流。' },
+      { name: '玛鲁', nick: 'Maru', gender: '女', role: '发明家/诊所助手', description: '聪明的理工少女，罗宾和德米特里乌斯的女儿。热爱发明、天文和修理，在诊所当助手，梦想成为世界级发明家。温柔又有点社恐。' },
+      { name: '潘妮', nick: 'Penny', gender: '女', role: '家庭教师', description: '害羞温柔的女孩，说话轻声细语。和酗酒的妈妈帕姆住在拖车里，靠教镇上孩子读书维生，梦想成为真正的老师，渴望一个稳定温暖的家。' },
+      { name: '亚历克斯', nick: 'Alex', gender: '男', role: '校队运动员', description: '阳光运动少年，热爱橄榄球和健身，一开始有点自大。和祖父母住一起，妈妈去世爸爸不在，内心其实很孤独，梦想成为职业运动员。' },
+      { name: '艾利欧特', nick: 'Elliott', gender: '男', role: '作家', description: '住在海边小屋的浪漫作家，说话文绉绉充满诗意。虚荣又戏剧化，但内心孤独认真，热爱诗歌、钢琴和美食，梦想写出传世之作。' },
+      { name: '哈维', nick: 'Harvey', gender: '男', role: '小镇医生', description: '小镇诊所医生，有点年纪的单身汉。礼貌聪明又焦虑，住在诊所楼上，热爱咖啡、收音机和模型飞机，选择小镇是因为想要慢节奏的社区医疗。' },
+      { name: '萨姆', nick: 'Sam', gender: '男', role: '音乐人', description: '随性开朗的滑板少年，热爱音乐和吉他，爱开玩笑有点懒散。和妈妈、弟弟住一起，爸爸从战场回来后关系紧张，和塞巴斯蒂安、阿比盖尔组乐队。' },
+      { name: '塞巴斯蒂安', nick: 'Sebastian', gender: '男', role: '程序员', description: '哥特风阴郁少年，说话毒舌慵懒。内向聪明爱独处，做自由程序员，热爱编程、科幻、摩托车和雨夜。和继父关系紧张，觉得自己被妹妹玛鲁比下去了。' },
+      { name: '谢恩', nick: 'Shane', gender: '男', role: '牧场工人', description: '粗声讽刺的乔佳超市店员，有点抑郁酗酒。和姨妈玛妮住一起，非常疼爱教女贾斯，最喜欢养鸡尤其是查理。内心善良忠诚，只是被生活磨得很累。' }
     ]
 
-    // 创建角色
+    // 先查已有的星露谷角色
+    const existingChars = await db.characters.where('group').equals('星露谷').toArray()
+    const existingByName = {}
+    existingChars.forEach(c => { existingByName[c.name] = c })
+
     const charIds = []
     for (const c of stardewChars) {
-      const id = await db.characters.add({
-        type: 'npc',
-        group: '星露谷',
-        name: c.name,
-        nick: c.nick,
-        gender: c.gender,
-        role: c.role,
-        description: c.description,
-        avatar: '',
-        identity: { account: '', password: '', phone: '', idCard: '', bankCard: '', bankPass: '' },
-        relations: []
-      })
-      charIds.push(id)
+      if (existingByName[c.name]) {
+        // 已存在，更新描述
+        await db.characters.update(existingByName[c.name].id, {
+          nick: c.nick,
+          gender: c.gender,
+          role: c.role,
+          description: c.description
+        })
+        charIds.push(existingByName[c.name].id)
+      } else {
+        // 不存在，创建新角色
+        const id = await db.characters.add({
+          type: 'npc',
+          group: '星露谷',
+          name: c.name,
+          nick: c.nick,
+          gender: c.gender,
+          role: c.role,
+          description: c.description,
+          avatar: '',
+          identity: { account: '', password: '', phone: '', idCard: '', bankCard: '', bankPass: '' },
+          relations: []
+        })
+        charIds.push(id)
+      }
     }
 
-    // 找到所有用户角色，把星露谷角色加到他们的好友列表里
+    // 找到所有用户角色，确保星露谷角色都在好友列表里
     const users = await db.characters.where('type').equals('user').toArray()
     for (const user of users) {
       const friendKey = `friends_${user.id}`
@@ -4088,11 +4104,11 @@ async function seedStardewCharacters() {
       await db.config.put({ key: friendKey, value: newFriends })
     }
 
-    // 标记已初始化
-    await db.config.put({ key: 'stardew_seeded_v1', value: true })
-    console.log('星露谷角色初始化完成，共添加', charIds.length, '位角色')
+    // 标记v2已完成
+    await db.config.put({ key: 'stardew_seeded_v2', value: true })
+    console.log('星露谷角色v2更新完成，共', charIds.length, '位角色')
   } catch (e) {
-    console.error('星露谷角色初始化失败', e)
+    console.error('星露谷角色v2更新失败', e)
   }
 }
 
