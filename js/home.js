@@ -4128,6 +4128,50 @@ async function seedStardewCharacters() {
       const existing = existingRow?.value || []
       const newFriends = [...new Set([...existing, ...charIds])]
       await db.config.put({ key: friendKey, value: newFriends })
+
+      // 给每个星露谷角色创建聊天会话+开场白+主动回复
+      const openings = {
+        '阿比盖尔': '嘿，新来的？听说你搬到农场了，挺酷的嘛。有空来镇上酒吧找我玩。',
+        '艾米丽': '欢迎来到佩利镇呀~ 我是艾米丽，在格斯的酒吧打工。有空来喝杯茶聊聊天？',
+        '海莉': '哦？新搬来的农场主？我是海莉。...别误会，我只是打个招呼而已。',
+        '莉亚': '你好呀，我是莉亚。听说你在南边开了个农场？希望我们能成为邻居。',
+        '玛鲁': '你好！我是玛鲁，在诊所帮哈维医生的。以后有什么不舒服随时来找我！',
+        '潘妮': '啊...你好...我是潘妮，在学校教孩子们读书的。欢迎来到小镇。',
+        '亚历克斯': '哟，新邻居！我是亚历克斯，热爱橄榄球。以后一起打球？',
+        '艾利欧特': '啊，尊贵的农场主，久仰大名。我是艾利欧特，住在海边的作家。',
+        '哈维': '你好，我是哈维，小镇诊所的医生。刚搬来要注意身体，有不舒服随时来找我。',
+        '萨姆': '嘿！新邻居！我是萨姆，喜欢音乐和滑板。有空一起组个乐队？',
+        '塞巴斯蒂安': '...哦。新搬来的？我是塞巴斯蒂安。没别的事我先回房间了。',
+        '谢恩': '...哈？新农场主？我是谢恩。别来烦我，我很忙。'
+      }
+
+      for (let i = 0; i < stardewChars.length; i++) {
+        const c = stardewChars[i]
+        const charId = charIds[i]
+        // 检查是否已有会话
+        let chat = await db.chats.where('[ownerUid+charId]').equals([user.id, charId]).first()
+        if (!chat) {
+          const chatId = await db.chats.add({ charId, ownerUid: user.id, createdAt: Date.now(), unread: 1 })
+          chat = await db.chats.get(chatId)
+        }
+        // 检查是否已经发过开场白（避免重复）
+        const msgCount = await db.messages.where('chatId').equals(chat.id).count()
+        if (msgCount === 0) {
+          await db.messages.add({
+            chatId: chat.id,
+            charId: charId,
+            role: 'assistant',
+            content: openings[c.name] || '你好。',
+            createdAt: Date.now()
+          })
+          await db.chats.update(chat.id, { unread: 1 })
+        }
+        // 打开主动回复开关
+        await db.config.put({
+          key: `chatActiveReply_${chat.id}`,
+          value: { enabled: true, intervalMinutes: 60, dndEnabled: true, dndStart: '00:00', dndEnd: '08:00' }
+        })
+      }
     }
 
     // 标记v4已完成
