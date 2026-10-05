@@ -3242,7 +3242,8 @@ async function fetchAI(cfg, messages, opts) {
   function baseBody(activeMessages) {
     var body = {
       model: cfg.model || 'gpt-4o-mini',
-      messages: system ? [{ role: 'system', content: system }].concat(activeMessages) : activeMessages
+      messages: system ? [{ role: 'system', content: system }].concat(activeMessages) : activeMessages,
+      max_tokens: 16384
     }
     if (temperature != null) body.temperature = temperature
     var js = opts.responseJsonSchema
