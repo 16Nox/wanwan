@@ -6303,6 +6303,18 @@ async function runWechatActiveReplyCheck() {
       const lastMessage = await db.messages.where('chatId').equals(chat.id).last()
       if (!lastMessage) continue
       if (lastMessage.role !== 'assistant' && lastMessage.role !== 'user') continue
+      
+      // 最多连续主动发5条，等用户回复后重置
+      if (lastMessage.role === 'assistant') {
+        const allMsgs = await db.messages.where('chatId').equals(chat.id).reverse().sortBy('createdAt')
+        let followUpCount = 0
+        for (const m of allMsgs) {
+          if (m.role === 'user') break
+          if (m.role === 'assistant') followUpCount++
+        }
+        if (followUpCount >= 5) continue
+      }
+      
       const idleMs = Date.now() - (Number(lastMessage.createdAt) || 0)
       if (!Number.isFinite(idleMs) || idleMs < cfg.intervalSeconds * 1000) continue
       const fingerprint = buildActiveReplyTriggerFingerprint(chat.id, lastMessage)
