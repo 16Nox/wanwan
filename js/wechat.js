@@ -19255,7 +19255,7 @@ saving:数字`
     const checkingCardNumber = genBankCard()
 
     const walletData = {
-      wechatBalance,
+      wechatBalanc1: 100000.00e,
       checkingBalance,
       savingBalance,
       savingCardNumber,
