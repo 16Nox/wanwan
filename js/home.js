@@ -4034,12 +4034,16 @@ window.showNovelAIPage = function() {
   }
 }
 
-// ===== 星露谷角色自动初始化 v6（修复聊天记录导入） =====
+// ===== 星露谷角色自动初始化 v7（修复聊天记录导入+调试日志） =====
 async function seedStardewCharacters() {
   try {
-    // 检查是否已经更新到v6
-    const flag = await db.config.get('stardew_seeded_v6')
-    if (flag) return
+    console.log('=== 开始执行星露谷v7初始化 ===')
+    // 检查是否已经更新到v7
+    const flag = await db.config.get('stardew_seeded_v7')
+    if (flag) {
+      console.log('v7标记已存在，跳过')
+      return
+    }
 
     // 等一下，确保数据库和微信初始化完成
     await new Promise(r => setTimeout(r, 2000))
@@ -4178,12 +4182,13 @@ async function seedStardewCharacters() {
     await db.config.put({ key: 'stardew_seeded_v4', value: true })
     console.log('星露谷角色v4更新完成，共', charIds.length, '位角色')
 
-    // ===== v6: 导入历史聊天记录 =====
-    const v6flag = await db.config.get('stardew_seeded_v6')
-    if (!v6flag) {
-      try {
+    // ===== v7: 导入历史聊天记录 =====
+    console.log('=== 开始导入聊天记录 ===')
+    try {
         const resp = await fetch('/js/stardew_messages.json')
+        console.log('fetch结果:', resp.status, resp.ok)
         const messagesData = await resp.json()
+        console.log('加载到的角色:', Object.keys(messagesData))
 
         // 英文名 → 中文名映射
         const nameMap = {
@@ -4191,7 +4196,11 @@ async function seedStardewCharacters() {
           'Shane': '谢恩',
           'Abigail': '阿比盖尔',
           'Sam': '萨姆',
-          'Penny': '潘妮'
+          'Penny': '潘妮',
+          'Emily': '艾米丽',
+          'Elliott': '艾利奥特',
+          'George': '乔治',
+          'Robin': '罗宾'
         }
 
         // 中文名 → charId
@@ -4260,14 +4269,13 @@ async function seedStardewCharacters() {
           }
         }
 
-        await db.config.put({ key: 'stardew_seeded_v6', value: true })
-        console.log('星露谷聊天记录导入完成')
+        await db.config.put({ key: 'stardew_seeded_v7', value: true })
+        console.log('=== 星露谷v7初始化完成，聊天记录导入结束 ===')
       } catch (e) {
         console.error('导入星露谷聊天记录失败', e)
       }
-    }
   } catch (e) {
-    console.error('星露谷角色v2更新失败', e)
+    console.error('星露谷角色v7更新失败', e)
   }
 }
 
