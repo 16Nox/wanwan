@@ -70,7 +70,7 @@ const CHAT_TIME_SETTINGS_DEFAULT = { enabled: true, mode: 'center', awareness: f
 const CHAT_BILINGUAL_DEFAULT = { enabled: false, sourceLang: 'ko', targetLang: 'zh-Hans' }
 const CHAT_ACTIVE_REPLY_DEFAULT = {
   enabled: false,
-  intervalSeconds: 60,
+  intervalSeconds: 20,
   dndEnabled: true,
   dndStart: '00:00',
   dndEnd: '08:00'
@@ -386,7 +386,7 @@ function normalizeChatActiveReplySettings(value) {
   const intervalSeconds = parseFloat(value?.intervalSeconds ?? value?.intervalMinutes)
   return {
     enabled: !!value?.enabled,
-    intervalSeconds: Number.isFinite(intervalSeconds) ? Math.max(10, intervalSeconds) : (CHAT_ACTIVE_REPLY_DEFAULT.intervalSeconds || 60),
+    intervalSeconds: Number.isFinite(intervalSeconds) ? Math.max(20, intervalSeconds) : (CHAT_ACTIVE_REPLY_DEFAULT.intervalSeconds || 20),
     dndEnabled: value?.dndEnabled !== undefined ? !!value?.dndEnabled : CHAT_ACTIVE_REPLY_DEFAULT.dndEnabled,
     dndStart: normalizeDayTimeValue(value?.dndStart, CHAT_ACTIVE_REPLY_DEFAULT.dndStart),
     dndEnd: normalizeDayTimeValue(value?.dndEnd, CHAT_ACTIVE_REPLY_DEFAULT.dndEnd)
